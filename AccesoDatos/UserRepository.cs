@@ -12,13 +12,13 @@ namespace AccesoDatos
 {
     public class UserRepository //: IDVDAO<UserModel>
     {
-        //PermissionsRepository permisosRepository;
+        PermissionRepository permisosRepository;
         //LanguageRepository languageRepository;
         private string tableName = "usuarios";
 
         public UserRepository()
         {
-            //permisosRepository = new PermissionsRepository();
+            permisosRepository = new PermissionRepository();
             //languageRepository = new LanguageRepository();
         }
         public void save(UserModel user)
@@ -179,7 +179,7 @@ namespace AccesoDatos
 
                 if (user != null)
                 {
-                    //permisosRepository.FillUserComponents(user);
+                    permisosRepository.FillUserComponents(user);
                     //user.Language = languageRepository.GetLanguage(idLanguaje);
                 }
 
@@ -261,7 +261,7 @@ namespace AccesoDatos
 
                 if (user != null)
                 {
-                    //permisosRepository.FillUserComponents(user);
+                    permisosRepository.FillUserComponents(user);
                     //user.Language = languageRepository.GetLanguage(idLanguaje);
                 }
 
@@ -313,7 +313,7 @@ namespace AccesoDatos
 
                 if (user != null)
                 {
-                    //permisosRepository.FillUserComponents(user);
+                    permisosRepository.FillUserComponents(user);
                     //user.Language = languageRepository.GetLanguage(idLanguaje);
                 }
 
@@ -368,7 +368,7 @@ namespace AccesoDatos
             //vinculo los usuarios con las patentes y familias que tiene configuradas.
             foreach (var user in lista)
             {
-                //permisosRepository.FillUserComponents(user);
+                permisosRepository.FillUserComponents(user);
             }
 
             return lista;
@@ -391,10 +391,10 @@ namespace AccesoDatos
                 {
                     cmd = new SqlCommand();
                     cmd.Connection = connection;
-
-                    cmd.CommandText = $@"insert into usuarios_permisos (id_usuario,id_permiso) values (@id_usuario,@id_permiso) "; ;
+                    //FIX THIS SHIT
+                    cmd.CommandText = $@"insert into User_Permissions (id_usuario,id_permiso) values (@id_usuario,@id_permiso) "; ;
                     cmd.Parameters.Add(new SqlParameter("id_usuario", user.Id));
-                    //cmd.Parameters.Add(new SqlParameter("id_permiso", item.Id));
+                    cmd.Parameters.Add(new SqlParameter("id_permiso", item.Id));
 
                     cmd.ExecuteNonQuery();
                 }

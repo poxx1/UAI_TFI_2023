@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Controladores;
+using Model;
+using Modelos;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Vista
 {
@@ -11,35 +16,57 @@ namespace Vista
         {
             if (!Page.IsPostBack)
             {
-                List<string> userlist = new List<string>()
+                #region Cargar DropDowns
+                UserModel user = new UserModel();
+                PermissionsService ps = new PermissionsService();
+
+                user = SessionModel.GetInstance.user;
+                List<Component> permisos = user.Permissions;
+                //Get each permission name // Hide each dropdown
+
+                if (permisos[1].Nombre == "Usuarios")
+                {
+                    List<string> userlist = new List<string>()
                 {   "Menu de usuarios",
                     "Agregar usuario",
                     "Eliminar usuario",
                     "Modificar usuario",
                     "Listar usuarios"
                 };
-                UserList.DataSource = null;
-                UserList.DataSource = userlist;
-                UserList.DataBind();
+                    UserList.DataSource = null;
+                    UserList.DataSource = userlist;
+                    UserList.DataBind();
+                }
+                else { UserList.Enabled = false; }
 
-                List<string> permissionlist = new List<string>()
-                {   
-                    "Menu de permisos",
-                    "Modificar Usuario/Patente",
-                    "Modificar Familia/Patente",
-                };
-                PermissionList.DataSource = null;
-                PermissionList.DataSource = permissionlist;
-                PermissionList.DataBind();
-
-                List<string> adminlist = new List<string>()
+                if (permisos[1].Nombre == "Patentes")
                 {
-                    "Menu de servicios",
-                    "Bitacora"
-                };
-                AdminList.DataSource = null;
-                AdminList.DataSource = adminlist;
-                AdminList.DataBind();
+                    List<string> permissionlist = new List<string>()
+                    {   
+                        "Menu de permisos",
+                        "Modificar Usuario/Patente",
+                        "Modificar Familia/Patente",
+                    };
+                    PermissionList.DataSource = null;
+                    PermissionList.DataSource = permissionlist;
+                    PermissionList.DataBind();
+                }
+                else { UserList.Enabled = false; }
+
+                if (permisos[1].Nombre == "Bitacora")
+                {
+                    List<string> adminlist = new List<string>()
+                    {
+                        "Menu de servicios",
+                        "Bitacora"
+                    };
+                    AdminList.DataSource = null;
+                    AdminList.DataSource = adminlist;
+                    AdminList.DataBind();
+                }
+                else { UserList.Enabled = false; }
+
+                #endregion
             }
         }
         protected void UserList_SelectedIndexChanged(object sender, EventArgs e)
