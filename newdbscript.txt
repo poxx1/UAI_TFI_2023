@@ -1,0 +1,251 @@
+USE [master]
+GO
+/****** Object:  Database [tfi]    Script Date: 10/3/2023 4:14:42 PM ******/
+CREATE DATABASE [tfi]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'tfi', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS01\MSSQL\DATA\tfi.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'tfi_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS01\MSSQL\DATA\tfi_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [tfi] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [tfi].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [tfi] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [tfi] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [tfi] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [tfi] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [tfi] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [tfi] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [tfi] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [tfi] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [tfi] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [tfi] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [tfi] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [tfi] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [tfi] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [tfi] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [tfi] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [tfi] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [tfi] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [tfi] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [tfi] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [tfi] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [tfi] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [tfi] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [tfi] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [tfi] SET  MULTI_USER 
+GO
+ALTER DATABASE [tfi] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [tfi] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [tfi] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [tfi] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [tfi] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [tfi] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [tfi] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [tfi] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [tfi]
+GO
+/****** Object:  Table [dbo].[Bitacora]    Script Date: 10/3/2023 4:14:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Bitacora](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[Date] [nvarchar](50) NOT NULL,
+	[Time] [nvarchar](50) NOT NULL,
+	[Info] [nvarchar](50) NOT NULL,
+	[Priority] [nvarchar](50) NOT NULL,
+	[Activity] [nvarchar](50) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permission]    Script Date: 10/3/2023 4:14:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permission](
+	[Name] [nvarchar](50) NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Permission] [nvarchar](50) NULL,
+	[Description] [nvarchar](50) NULL,
+ CONSTRAINT [PK_permiso] PRIMARY KEY CLUSTERED 
+(
+	[Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permission_Permission]    Script Date: 10/3/2023 4:14:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permission_Permission](
+	[ID_Permission_Father] [int] NOT NULL,
+	[ID_Permission_Child] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User_Permission]    Script Date: 10/3/2023 4:14:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User_Permission](
+	[ID_User] [int] NOT NULL,
+	[ID_Permission] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 10/3/2023 4:14:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Dni] [nvarchar](50) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[LastName] [nvarchar](50) NOT NULL,
+	[Nickname] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](200) NOT NULL,
+	[Email] [nvarchar](50) NOT NULL,
+	[Phone] [nvarchar](50) NOT NULL,
+	[Address] [nvarchar](50) NOT NULL,
+	[dvh] [nvarchar](50) NOT NULL,
+	[Language_Id] [int] NOT NULL,
+	[Tries] [int] NOT NULL,
+	[Blocked] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Bitacora] ON 
+
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1013, N'admin', N'10/02/23', N'21:53:42', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1014, N'admin', N'10/02/23', N'21:54:17', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1015, N'admin', N'10/02/23', N'21:54:18', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1016, N'julian', N'10/02/23', N'21:57:41', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1017, N'julian', N'10/02/23', N'21:57:44', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1020, N'admin', N'10/02/23', N'23:23:48', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1021, N'admin', N'10/02/23', N'23:24:27', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1022, N'julian', N'10/02/23', N'23:25:27', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1023, N'julian', N'10/02/23', N'23:25:31', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1024, N'admin', N'10/02/23', N'23:35:05', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1025, N'admin', N'10/02/23', N'23:35:07', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1028, N'admin', N'10/02/23', N'23:49:20', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1030, N'admin', N'10/03/23', N'01:22:56', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1031, N'admin', N'10/03/23', N'01:24:13', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1032, N'admin', N'10/03/23', N'01:26:19', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1033, N'admin', N'10/03/23', N'01:27:29', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1034, N'admin', N'10/03/23', N'01:28:04', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1035, N'davidg', N'10/03/23', N'01:28:38', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1036, N'admin', N'10/03/23', N'01:29:07', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1038, N'admin', N'10/03/23', N'01:40:48', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1039, N'admin', N'10/03/23', N'01:48:39', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1040, N'admin', N'10/03/23', N'01:52:26', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1041, N'admin', N'10/03/23', N'01:52:31', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1049, N'admin', N'10/03/23', N'02:10:09', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1054, N'admin', N'10/03/23', N'02:18:57', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1058, N'admin', N'10/03/23', N'02:29:46', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1064, N'admin', N'10/03/23', N'02:44:06', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (2013, N'admin', N'10/03/23', N'11:34:26', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (2014, N'admin', N'10/03/23', N'11:38:08', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (2015, N'admin', N'10/03/23', N'11:41:44', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (2016, N'admin', N'10/03/23', N'11:43:45', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (2018, N'admin', N'10/03/23', N'11:53:05', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1018, N'julian', N'10/02/23', N'23:07:14', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1019, N'julian', N'10/02/23', N'23:07:16', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1026, N'admin', N'10/02/23', N'23:45:59', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1027, N'admin', N'10/02/23', N'23:46:05', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1029, N'davidg', N'10/02/23', N'23:51:45', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1037, N'admin', N'10/03/23', N'01:31:35', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1042, N'julian', N'10/03/23', N'01:53:23', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1043, N'julian', N'10/03/23', N'01:53:26', N'El usuario  se deslogueo.', N'Baja', N'Logout')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1044, N'admin', N'10/03/23', N'01:54:15', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1045, N'admin', N'10/03/23', N'01:55:52', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1046, N'admin', N'10/03/23', N'01:59:57', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1047, N'julian', N'10/03/23', N'02:01:08', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1048, N'admin', N'10/03/23', N'02:07:18', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1050, N'admin', N'10/03/23', N'02:11:29', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1051, N'admin', N'10/03/23', N'02:14:39', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1052, N'admin', N'10/03/23', N'02:15:54', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1053, N'admin', N'10/03/23', N'02:17:01', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1055, N'admin', N'10/03/23', N'02:21:12', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1056, N'admin', N'10/03/23', N'02:21:44', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1057, N'admin', N'10/03/23', N'02:22:37', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1059, N'admin', N'10/03/23', N'02:31:04', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1060, N'admin', N'10/03/23', N'02:34:09', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1061, N'admin', N'10/03/23', N'02:37:24', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1062, N'admin', N'10/03/23', N'02:39:38', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1063, N'admin', N'10/03/23', N'02:43:29', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (1065, N'admin', N'10/03/23', N'03:02:42', N'El usuario  se logueo.', N'Baja', N'Login')
+INSERT [dbo].[Bitacora] ([Id], [UserName], [Date], [Time], [Info], [Priority], [Activity]) VALUES (2017, N'admin', N'10/03/23', N'11:50:04', N'El usuario  se logueo.', N'Baja', N'Login')
+SET IDENTITY_INSERT [dbo].[Bitacora] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Permission] ON 
+
+INSERT [dbo].[Permission] ([Name], [ID], [Permission], [Description]) VALUES (N'Admin', 3, NULL, NULL)
+INSERT [dbo].[Permission] ([Name], [ID], [Permission], [Description]) VALUES (N'Bitacora', 1, N'Bitacora', N'Vista de la bitacora')
+INSERT [dbo].[Permission] ([Name], [ID], [Permission], [Description]) VALUES (N'Cliente', 4, NULL, NULL)
+INSERT [dbo].[Permission] ([Name], [ID], [Permission], [Description]) VALUES (N'Patentes', 5, N'Patentes', N'Menu de familias y componentes')
+INSERT [dbo].[Permission] ([Name], [ID], [Permission], [Description]) VALUES (N'Usuarios', 2, N'Usuarios', N'Menu de usuarios')
+SET IDENTITY_INSERT [dbo].[Permission] OFF
+GO
+INSERT [dbo].[Permission_Permission] ([ID_Permission_Father], [ID_Permission_Child]) VALUES (3, 1)
+INSERT [dbo].[Permission_Permission] ([ID_Permission_Father], [ID_Permission_Child]) VALUES (3, 2)
+INSERT [dbo].[Permission_Permission] ([ID_Permission_Father], [ID_Permission_Child]) VALUES (3, 5)
+GO
+INSERT [dbo].[User_Permission] ([ID_User], [ID_Permission]) VALUES (6, 3)
+INSERT [dbo].[User_Permission] ([ID_User], [ID_Permission]) VALUES (4, 4)
+INSERT [dbo].[User_Permission] ([ID_User], [ID_Permission]) VALUES (7, 3)
+INSERT [dbo].[User_Permission] ([ID_User], [ID_Permission]) VALUES (5, 4)
+INSERT [dbo].[User_Permission] ([ID_User], [ID_Permission]) VALUES (8, 4)
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+
+INSERT [dbo].[Users] ([Id], [Dni], [Name], [LastName], [Nickname], [Password], [Email], [Phone], [Address], [dvh], [Language_Id], [Tries], [Blocked]) VALUES (6, N'39430861', N'Julian', N'Lastra', N'admin', N'8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'julianlastra.kz@gmail.com', N'1159363830', N'Posadas 289', N'usuarioactualizado', 1, 0, 0)
+INSERT [dbo].[Users] ([Id], [Dni], [Name], [LastName], [Nickname], [Password], [Email], [Phone], [Address], [dvh], [Language_Id], [Tries], [Blocked]) VALUES (7, N'39430862', N'Julian', N'Lastra', N'julian', N'ce0fee7e61f9c74f1110f0e5940a80b4f059f189217d0c3d26bb41960d4bf597', N'julianlastra.kz@gmail.com', N'1159363830', N'Posadas 289', N'usuarioactualizado', 1, 0, 0)
+INSERT [dbo].[Users] ([Id], [Dni], [Name], [LastName], [Nickname], [Password], [Email], [Phone], [Address], [dvh], [Language_Id], [Tries], [Blocked]) VALUES (8, N'23231315', N'Luis Alberto', N'Spinetta', N'spinetta', N'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', N'luis@spinetta.com', N'2229942', N'Calzada 2', N'usuarioactualizado', 1, 0, 0)
+INSERT [dbo].[Users] ([Id], [Dni], [Name], [LastName], [Nickname], [Password], [Email], [Phone], [Address], [dvh], [Language_Id], [Tries], [Blocked]) VALUES (4, N'321321', N'David', N'Guimoure', N'davidg', N'8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'd@gmail.com', N'1234', N'Lodnres 14', N'usuarioactualizado', 1, 0, 0)
+INSERT [dbo].[Users] ([Id], [Dni], [Name], [LastName], [Nickname], [Password], [Email], [Phone], [Address], [dvh], [Language_Id], [Tries], [Blocked]) VALUES (5, N'32131', N'Pepe', N'pepe', N'pepe', N'8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', N'pepe', N'123', N'pepe ', N'usuarioactualizado', 1, 6, 1)
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+USE [master]
+GO
+ALTER DATABASE [tfi] SET  READ_WRITE 
+GO

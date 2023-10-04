@@ -1,0 +1,29 @@
+﻿.treeNode {
+    text-align: center;
+    min-width: 100px;
+    border: 2px solid black;
+    color: black;
+}
+
+.rootNode {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.leafNode {
+    border: unset;
+    background-color: ghostwhite;
+}
+
+.selectNode {
+    background-color: Black;
+    border: unset;
+    font-weight: bold;
+    color: ghostwhite;
+}
+
+.treeDiv {
+    background-color: whitesmoke;
+    padding: 1px 30px 10px 10px;
+    width: fit-content;
+}
