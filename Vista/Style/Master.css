@@ -14,3 +14,11 @@ body {
     color: #808080;
     margin : 10px 10px;
 }
+
+.customLabel {
+    padding: 1px 1px 1px 200px;
+}
+
+.logOut {
+    padding: 1px 1px 1px 100px;
+}

@@ -4,6 +4,7 @@ using Modelos;
 using Servicios;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,56 +18,61 @@ namespace Vista
             if (!Page.IsPostBack)
             {
                 #region Cargar DropDowns
-                UserModel user = new UserModel();
-                PermissionsService ps = new PermissionsService();
-
-                user = SessionModel.GetInstance.user;
-                List<Component> permisos = user.Permissions;
-                //Get each permission name // Hide each dropdown
-
-                if (permisos[1].Nombre == "Usuarios")
-                {
-                    List<string> userlist = new List<string>()
+                List<string> userlist = new List<string>()
                 {   "Menu de usuarios",
                     "Agregar usuario",
                     "Eliminar usuario",
                     "Modificar usuario",
                     "Listar usuarios"
                 };
-                    UserList.DataSource = null;
-                    UserList.DataSource = userlist;
-                    UserList.DataBind();
-                }
-                else { UserList.Enabled = false; }
+                UserList.DataSource = null;
+                UserList.DataSource = userlist;
+                UserList.DataBind();
 
-                if (permisos[1].Nombre == "Patentes")
+                List<string> permissionlist = new List<string>()
                 {
-                    List<string> permissionlist = new List<string>()
-                    {   
-                        "Menu de permisos",
-                        "Modificar Usuario/Patente",
-                        "Modificar Familia/Patente",
-                    };
-                    PermissionList.DataSource = null;
-                    PermissionList.DataSource = permissionlist;
-                    PermissionList.DataBind();
-                }
-                else { UserList.Enabled = false; }
+                    "Menu de permisos",
+                    "Modificar Usuario/Patente",
+                    "Modificar Familia/Patente",
+                };
+                PermissionList.DataSource = null;
+                PermissionList.DataSource = permissionlist;
+                PermissionList.DataBind();
 
-                if (permisos[1].Nombre == "Bitacora")
-                {
-                    List<string> adminlist = new List<string>()
+                List<string> adminlist = new List<string>()
                     {
                         "Menu de servicios",
                         "Bitacora"
                     };
-                    AdminList.DataSource = null;
-                    AdminList.DataSource = adminlist;
-                    AdminList.DataBind();
-                }
-                else { UserList.Enabled = false; }
-
+                AdminList.DataSource = null;
+                AdminList.DataSource = adminlist;
+                AdminList.DataBind();
                 #endregion
+
+                UserModel user = new UserModel();
+                PermissionsService ps = new PermissionsService();
+                
+                user = SessionModel.GetInstance.user;
+                List<Component> permisos = user.Permissions;
+                List<string> strings = new List<string>();
+
+                string tipoUsuario = "";
+
+                foreach(Component permiso in permisos)
+                {
+                    if(permiso.Nombre == "Admin" || permiso.Nombre =="Cliente" || permiso.Nombre == "Webmaster")
+                        tipoUsuario = permiso.Nombre;
+                    permiso.Childs.ForEach(x => strings.Add(x.Nombre));
+                }
+
+                if (!strings.Contains("Usuarios"))
+                    UserList.Enabled = false;
+                if (!strings.Contains("Patentes"))
+                    PermissionList.Enabled = false;
+                if (!strings.Contains("Bitacora"))
+                    AdminList.Enabled = false;
+                
+                Label1.Text = "Usuario: " + user.Nickname + " | Rol: " + tipoUsuario;
             }
         }
         protected void UserList_SelectedIndexChanged(object sender, EventArgs e)
