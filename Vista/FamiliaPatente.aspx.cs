@@ -15,8 +15,10 @@ namespace Vista
         protected void Page_Load(object sender, EventArgs e)
         {
             if ((bool)Session["logged_in"] != true) HttpContext.Current.Response.Redirect("Start.aspx");
-            permissionsService = new PermissionsService();
+            if ((bool)Session["permission"] != true) HttpContext.Current.Response.Redirect("Default.aspx");
 
+            permissionsService = new PermissionsService();
+            
             if (!Page.IsPostBack)
             {
                 //Patentes

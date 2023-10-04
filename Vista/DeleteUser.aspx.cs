@@ -13,7 +13,8 @@ namespace Vista
         protected void Page_Load(object sender, EventArgs e)
         {
             if ((bool)Session["logged_in"] != true) HttpContext.Current.Response.Redirect("Start.aspx");
-                
+            if ((bool)Session["permission"] != true) HttpContext.Current.Response.Redirect("Start.aspx");
+
             foreach (UserModel user in us.GetAll())
             {
                 ListBox1.Items.Add(user.Nickname);
