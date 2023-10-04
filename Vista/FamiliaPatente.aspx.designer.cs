@@ -11,7 +11,7 @@ namespace Vista
 {
 
 
-    public partial class Permissions
+    public partial class FamiliaPatente
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace Vista
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// DropDownList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// DropDownList2 control.
@@ -51,15 +42,6 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
 
         /// <summary>
-        /// DropDownList4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
-
-        /// <summary>
         /// TreeView1 control.
         /// </summary>
         /// <remarks>
@@ -78,22 +60,22 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button Button4;
 
         /// <summary>
-        /// TextBox1 control.
+        /// Button5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
-        /// Button2 control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
         /// TextBox2 control.
@@ -105,12 +87,12 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
 
         /// <summary>
-        /// Button3 control.
+        /// Button6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button Button6;
     }
 }

@@ -103,6 +103,7 @@
     <Content Include="Bitacora.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="EditUser.aspx" />
+    <Content Include="FamiliaPatente.aspx" />
     <Content Include="ListUser.aspx" />
     <Content Include="LogOut.aspx" />
     <Content Include="AddUser.aspx" />
@@ -126,7 +127,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="FamiliaPatente.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -218,6 +218,13 @@
     <Compile Include="EditUser.aspx.designer.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FamiliaPatente.aspx.cs">
+      <DependentUpon>FamiliaPatente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FamiliaPatente.aspx.designer.cs">
+      <DependentUpon>FamiliaPatente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListUser.aspx.cs">
       <DependentUpon>ListUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,13 +256,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="FamiliaPatente.aspx.cs">
-      <DependentUpon>FamiliaPatente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FamiliaPatente.aspx.designer.cs">
-      <DependentUpon>FamiliaPatente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

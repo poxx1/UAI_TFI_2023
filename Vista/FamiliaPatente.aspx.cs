@@ -1,7 +1,6 @@
 ﻿using Modelos;
 using Servicios;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,11 +8,10 @@ using System.Web.UI.WebControls;
 
 namespace Vista
 {
-    public partial class Permissions : System.Web.UI.Page
+    public partial class FamiliaPatente : System.Web.UI.Page
     {
         PermissionsService permissionsService;
         Family seleccion;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if ((bool)Session["logged_in"] != true) HttpContext.Current.Response.Redirect("Start.aspx");
@@ -21,11 +19,6 @@ namespace Vista
 
             if (!Page.IsPostBack)
             {
-                //Usuario
-                DropDownList1.DataSource = null;
-                DropDownList1.DataSource = permissionsService.GetAllPermission();
-                DropDownList1.DataBind();
-
                 //Patentes
                 DropDownList2.DataSource = null;
                 DropDownList2.DataSource = permissionsService.GetAllPatentes();
@@ -38,24 +31,7 @@ namespace Vista
                 DropDownList3.DataSource = ListFamilias;
                 DropDownList3.DataBind();
 
-                //Familia por ID
-                //List<int> listaIDs = new List<int>();
-
-                foreach (Family family in ListFamilias)
-                {
-                    if (family.Id.ToString() == DropDownList3.Text)
-                    {
-                        //listaIDs.Add(family.Id);
-                        ListFamilias.Remove(family);
-                    }
-                }
-
-                //permissionsService.GetAllFamilies()
-                DropDownList4.DataSource = null;
-                DropDownList4.DataSource = ListFamilias;
-                DropDownList4.DataBind();
-
-                MostrarFamilia(true);
+                //MostrarFamilia(true); Hacer un metodo que lo autocargue
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -71,57 +47,16 @@ namespace Vista
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Patentes
-
         }
 
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //Familias
         }
-
-        protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Familias con ID
-        }
-
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Usuarios
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            //Guardar patente
-            Patent p = new Patent()
-            {
-                Nombre = TextBox1.Text,
-                //Permiso = (PermissionsEnum)DropDownList1.SelectedItem
-            };
-
-            permissionsService.SaveComponent(p, false);
-            //Reload de la pagina asi muestra la nueva patente
-
-            //MessageBox.Show("Patente guardada correctamente");
-        }
-
         protected void Button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                Family p = new Family()
-                {
-                    Nombre = TextBox2.Text//.GetStringMinLength(3)???
-                };
-                permissionsService.SaveComponent(p, true);
-                //Reload de la pagina asi muestra la nueva familia
-
-                //MessageBox.Show("Familia guardada correctamente");
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Ocurrio un Error " + (ex.Message ?? (":" + ex.Message)));
-            }
+            ////Guardar familia
+            
         }
         private void MostrarFamilia(bool init)
         {
@@ -163,6 +98,43 @@ namespace Vista
                 {
                     MostrarEnTreeView(node, item);
                 }
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            try { 
+            TreeNode nuevaPatente = new TreeNode();
+            nuevaPatente.Text = DropDownList2.SelectedItem.Text.ToString();
+
+            TreeView1.Nodes.Add(nuevaPatente);
+            TreeView1.SelectedNode.ChildNodes.Add(nuevaPatente);
+            TreeView1.ExpandAll();
+            TreeView1.DataBind();
+            }
+            catch (Exception) { }
+        }
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            //Quitar permiso
+            try
+            {
+                TreeNode currentPatente = new TreeNode();
+                currentPatente.Text = DropDownList2.SelectedItem.Text.ToString();
+                var list = TreeView1.SelectedNode.ChildNodes.Cast<TreeNode>().ToList();
+                foreach (TreeNode node in list)
+                {
+                    if (node.Text == currentPatente.Text)
+                        TreeView1.SelectedNode.ChildNodes.Remove(node);
+                }
+                TreeView1.ExpandAll();
+                TreeView1.DataBind();
+            }
+            catch (Exception) { }
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            //Crear familia
         }
     }
 }
