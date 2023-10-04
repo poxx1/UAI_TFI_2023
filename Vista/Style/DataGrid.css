@@ -1,4 +1,11 @@
-﻿.mGrid {
+﻿td {
+    color: #232325;
+    text-decoration: unset;
+    font-weight: 600;
+    border: solid 2px black;
+}
+
+.mGrid {
     width: 100%;
     background-color: #fff;
     margin: 5px 0 10px 0;

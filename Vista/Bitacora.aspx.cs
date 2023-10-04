@@ -4,10 +4,14 @@ using Modelos;
 using Servicios;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FastMember;
 
 namespace Vista
 {
@@ -32,35 +36,69 @@ namespace Vista
             return bitacora.ListLogs();
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        private void BindGrid(List<LogModel> lista)
         {
-            string ordernarPor = ListBox1.SelectedItem.Text;
-            bool ordenarDescendente = CheckBox1.Checked;
-
-            var lista = bitacoraList();
-
-            switch (ordernarPor) { 
-                case "Id":  if (ordenarDescendente) GridView1.DataSource = lista.OrderByDescending(x => x.Id);
-                    else GridView1.DataSource = lista.OrderBy(x => x.Id); ;
-                    break;
-
-                case "Fecha": if (ordenarDescendente) GridView1.DataSource = lista.OrderByDescending(x => x.Fecha);
-                    else GridView1.DataSource = lista.OrderBy(x => x.Fecha); ;
-                    break;
-
-                case "Usuario": if (ordenarDescendente) GridView1.DataSource = lista.OrderByDescending(x => x.Usuario);
-                    else GridView1.DataSource = lista.OrderBy(x => x.Usuario); ;
-                    break;
-
-                default: break;
+            // New table.
+            IEnumerable<LogModel> data = lista;
+            DataTable table = new DataTable();
+            using (var reader = ObjectReader.Create(data))
+            {
+                table.Load(reader);
             }
 
+            GridView1.DataSource = table;
             GridView1.DataBind();
+        }
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string ordernarPor = ListBox1.SelectedItem.Text;
+                bool ordenarDescendente = CheckBox1.Checked;
+
+                var lista = bitacoraList();
+
+                switch (ordernarPor)
+                {
+                    case "Id":
+                        if (ordenarDescendente)
+                        {
+                            BindGrid((List<LogModel>)lista.OrderByDescending(x => x.Id).ToList());
+                        }
+                        else { BindGrid((List<LogModel>)lista.OrderBy(x => x.Id).ToList()); };
+                        break;
+
+                    case "Fecha":
+                        if (ordenarDescendente)
+                        {
+                            BindGrid((List<LogModel>)lista.OrderByDescending(x => x.Fecha).ToList());
+                        }
+                        else
+                        {
+                            BindGrid((List<LogModel>)lista.OrderBy(x => x.Fecha).ToList());
+                        };
+                        break;
+
+                    case "Usuario":
+                        if (ordenarDescendente)
+                        {
+                            BindGrid((List<LogModel>)lista.OrderByDescending(x => x.Usuario).ToList());
+                        }
+                        else
+                        {
+                            BindGrid((List<LogModel>)lista.OrderBy(x => x.Usuario).ToList());
+                        };
+                        break;
+
+                    default: break;
+                }
+            }
+            catch (Exception ex) { };
         }
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataSource = bitacoraList();
+            //GridView1.DataSource = bitacoraList();
             GridView1.DataBind();
         }
     }
