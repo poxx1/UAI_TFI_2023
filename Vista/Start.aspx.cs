@@ -16,6 +16,8 @@ namespace Vista
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["logged_in"] = false;
+            //GlobalMessage.MessageBox(this, $"{Session.SessionID}");
+            //Label1.Text = Session.SessionID;
         }
         protected void Button1_Click(object sender, EventArgs e)
         {

@@ -42,7 +42,8 @@ namespace Vista
                 List<string> adminlist = new List<string>()
                     {
                         "Menu de servicios",
-                        "Bitacora"
+                        "Bitacora",
+                        "Backup"
                     };
                 AdminList.DataSource = null;
                 AdminList.DataSource = adminlist;
@@ -108,6 +109,7 @@ namespace Vista
                 switch (AdminList.SelectedItem.Text)
                 {
                     case "Bitacora": HttpContext.Current.Response.Redirect("Bitacora.aspx"); break;
+                    case "Backup": HttpContext.Current.Response.Redirect("Backup.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }

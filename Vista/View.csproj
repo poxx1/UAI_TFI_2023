@@ -103,7 +103,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Backup.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="Customs\WebUserControl1.ascx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="EditUser.aspx" />
     <Content Include="FamiliaPatente.aspx" />
@@ -200,12 +202,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Backup.aspx.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backup.aspx.designer.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bitacora.aspx.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customs\WebUserControl1.ascx.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customs\WebUserControl1.ascx.designer.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
     </Compile>
     <Compile Include="DeleteUser.aspx.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>

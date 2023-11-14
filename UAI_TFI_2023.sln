@@ -18,8 +18,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{A01C98EA-6925-485C-9453-81B3453177BE}"
 	ProjectSection(SolutionItems) = preProject
 		newdbscript.txt = newdbscript.txt
-		..\..\..\Desktop\SLQDBTFI.sql = ..\..\..\Desktop\SLQDBTFI.sql
+		..\Desktop\SLQDBTFI.sql = ..\Desktop\SLQDBTFI.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{96D34A33-ACCC-4C14-A61E-4391B060ECE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F668AF16-A1E7-45EF-9054-1E98E3728AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F668AF16-A1E7-45EF-9054-1E98E3728AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F668AF16-A1E7-45EF-9054-1E98E3728AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

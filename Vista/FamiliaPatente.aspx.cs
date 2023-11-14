@@ -133,7 +133,6 @@ namespace Vista
             }
             catch (Exception) { }
         }
-
         protected void Button6_Click(object sender, EventArgs e)
         {
             //Crear familia

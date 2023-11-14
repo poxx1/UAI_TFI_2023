@@ -4,22 +4,30 @@
     <link href="/Style/DataGrid.css" rel="stylesheet" />
     <main aria-labelledby="title">
          <div>
-             <asp:Button ID="Button1" runat="server" Text="Listar bitacora" OnClick="Button1_Click" />
-             &nbsp;<asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Odernar" />
-             <br>
+             Fecha&nbsp;&nbsp;
+             Desde:
+             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;Hasta:
+             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button1" runat="server" Text="Aplicar filtros" OnClick="Button1_Click" />
              <br />
-             Ordenar por&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <br />
-             <asp:ListBox ID="ListBox1" runat="server">
-                 <asp:ListItem>Id</asp:ListItem>
-                 <asp:ListItem>Fecha</asp:ListItem>
-                 <asp:ListItem>Usuario</asp:ListItem>
-             </asp:ListBox>
-&nbsp;&nbsp;
+             Usuario:
+             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+             </asp:DropDownList>
+&nbsp; Criticidad:
+             <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack=True OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+             </asp:DropDownList>
+&nbsp;Ordenar por:
+             <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack=True Height="25px" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
+             </asp:DropDownList>
              <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
              <br />
              Secuencia de ordenado<br />
              <asp:CheckBox ID="CheckBox1" runat="server" Text="Descendente" />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Odernar" />
+             <br />
              <br />
              <br/>
         </div>
