@@ -28,7 +28,7 @@ namespace Vista
             if (IsPostBack)
             {
                 checkCreateDirectory();
-                pathActual = "C://Backup" + FileUpload1.FileName;
+                pathActual = "C://Backup//" + FileUpload1.FileName;
 
                 backup.realizarRestore(pathActual);
             }
