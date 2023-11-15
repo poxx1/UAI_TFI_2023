@@ -1,4 +1,5 @@
 ﻿using AccesoDatos;
+using DigitosVerificadoresLib.interfaces;
 using Model;
 using Modelos;
 using Servicios;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Controladores
 {
-    public class UserService //: IDVService
+    public class UserService : IDVService
     {
         PermissionsService permissionsService;
         //LanguageService languageService;
@@ -145,32 +146,32 @@ namespace Controladores
             }
 
         }
-      
-        //public List<String> checkintegrity()
-        //{
-        //    List<String> errors = new List<string>();
-        //    List<UserModel> list = userRepository.getAll();
 
-        //    list.ForEach(item =>
-        //    {
-        //        if (!item.dvh.Equals(userRepository.calculateDVH(item)))
-        //        {
-        //            errors.Add($"En la tabla Usuarios: El Usuario con id : {item.Id} , fue modificado");
-        //        }
-        //    });
+        public List<String> checkintegrity()
+        {
+            List<String> errors = new List<string>();
+            List<UserModel> list = userRepository.getAll();
 
-        //    if (!userRepository.calculateDVV(list).Equals(userRepository.getDVV()))
-        //    {
-        //        errors.Add($"El digito verificador vertical de la tabla usuarios no es correcto");
-        //    }
+            list.ForEach(item =>
+            {
+                if (!item.dvh.Equals(userRepository.calculateDVH(item)))
+                {
+                    errors.Add($"En la tabla Usuarios: El Usuario con id : {item.Id} , fue modificado");
+                }
+            });
 
-        //    return errors;
-        //}
+            if (!userRepository.calculateDVV(list).Equals(userRepository.getDVV()))
+            {
+                errors.Add($"El digito verificador vertical de la tabla usuarios no es correcto");
+            }
 
-        //public void reacalcDV()
-        //{
-        //    userRepository.UpdateAllDV();
-        //    userRepository.updateDVV();
-        //}
+            return errors;
+        }
+
+        public void reacalcDV()
+        {
+            userRepository.UpdateAllDV();
+            userRepository.updateDVV();
+        }
     }
 }

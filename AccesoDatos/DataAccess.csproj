@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TFI2023-master\DigitosVerificadoresLib\DigitosVerificadoresLib.csproj">
+      <Project>{212b76d5-c82d-496e-9e1e-bb6d99f4acf5}</Project>
+      <Name>DigitosVerificadoresLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelos\Model.csproj">
       <Project>{E7AF3618-CAED-4B9E-8822-B3BAFDCE62D9}</Project>
       <Name>Model</Name>

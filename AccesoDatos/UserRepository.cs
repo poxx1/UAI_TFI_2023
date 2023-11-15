@@ -4,13 +4,14 @@ using System.Data.SqlClient;
 using System.Data;
 using Servicios;
 using Model;
-
 using System.Linq;
 using System.Text;
+using DigitosVerificadoresLib;
+using DigitosVerificadoresLib.services;
 
 namespace AccesoDatos
 {
-    public class UserRepository //: IDVDAO<UserModel>
+    public class UserRepository : IDVDAO<UserModel>
     {
         PermissionRepository permisosRepository;
         //LanguageRepository languageRepository;
@@ -71,51 +72,10 @@ namespace AccesoDatos
                     cmd.Parameters.Add(new SqlParameter("Email", user.Mail)); 
                     cmd.Parameters.Add(new SqlParameter("Phone", user.Phone));
                     cmd.Parameters.Add(new SqlParameter("Address", user.Adress));
-                    cmd.Parameters.Add(new SqlParameter("dvh", "testdelcalculodeldigitoverficador"));
-                    //cmd.Parameters.Add(new SqlParameter("dvh", "testdelcalculodeldigitoverficador"));//calculateDVH(user)));
+                    //cmd.Parameters.Add(new SqlParameter("dvh", "testdelcalculodeldigitoverficador"));
+                    cmd.Parameters.Add(new SqlParameter("dvh", calculateDVH(user)));
 
                     cmd.ExecuteNonQuery();
-
-                    //cmd = new SqlCommand();
-                    //cmd.Connection = connection;
-                    //cmd.Transaction = transaction;
-                    //cmd.CommandText = $@"select * from usuarios where Nickname = @Nickname ;";
-                    //cmd.Parameters.Add(new SqlParameter("Nickname", user.Nickname));
-                    //SqlDataReader reader = cmd.ExecuteReader();
-                    //reader.Read();
-                    //user.Id = int.Parse(reader.GetValue(reader.GetOrdinal("id_usuario")).ToString());
-                    //reader.Close();
-
-                    //cmd = new SqlCommand();
-                    //cmd.CommandText = $@"INSERT INTO [dbo].[usuario_data]
-                    //               ([id_usuario]
-                    //                ,[nombre]
-                    //                ,[apellido]
-                    //                ,[telefono]
-                    //                ,[direccion]
-                    //                ,[dni]
-                    //                ,[dvh])
-                    //                VALUES
-                    //                (@id
-                    //                ,@nombre
-                    //                ,@apellido
-                    //                ,@telefono  
-                    //                ,@direccion
-                    //                ,@dni
-                    //                ,@dvh)";
-
-                    //cmd.Connection = connection;
-                    //cmd.Transaction = transaction;
-                    //cmd.Parameters.Add(new SqlParameter("id", user.Id));
-                    //cmd.Parameters.Add(new SqlParameter("nombre", user.Name));
-                    //cmd.Parameters.Add(new SqlParameter("apellido", user.LastName));
-                    //cmd.Parameters.Add(new SqlParameter("telefono", user.Phone));
-                    //cmd.Parameters.Add(new SqlParameter("direccion", user.Adress));
-                    //cmd.Parameters.Add(new SqlParameter("dni", user.Dni));
-                    ////cmd.Parameters.Add(new SqlParameter("dvh", calculateDVH(user)));
-
-
-                    //cmd.ExecuteNonQuery();
 
                     transaction.Commit();
 
@@ -123,7 +83,7 @@ namespace AccesoDatos
 
                     //savePermissions(user);
 
-                    //updateDVV();
+                    updateDVV();
                 }
                 catch
                 {
@@ -182,6 +142,7 @@ namespace AccesoDatos
                     permisosRepository.FillUserComponents(user);
                     //user.Language = languageRepository.GetLanguage(idLanguaje);
                 }
+               
 
                 return user;
             }
@@ -478,37 +439,17 @@ namespace AccesoDatos
                     cmd.Parameters.Add(new SqlParameter("Address", user.Adress));
                     cmd.Parameters.Add(new SqlParameter("Tries", user.Tries));
                     cmd.Parameters.Add(new SqlParameter("Blocked", user.Blocked));
-                    cmd.Parameters.Add(new SqlParameter("dvh", "usuarioactualizado"));
-                    //cmd.Parameters.Add(new SqlParameter("dvh", calculateDVH(user)));
+                    cmd.Parameters.Add(new SqlParameter("dvh", calculateDVH(user)));
                     //cmd.Parameters.Add(new SqlParameter("idioma", user.Language.ID));
 
                     cmd.ExecuteNonQuery();
 
-                    //query = $@"UPDATE [dbo].[usuario_data]
-                    //           SET  [nombre] = @nombre
-                    //                ,[apellido] = @apellido
-                    //                ,[telefono] = @telefono
-                    //                ,[direccion] = @direccion
-                    //                ,[dni] = @dni
-                    //                ,[dvh] = @dvh
-                    //              where id_usuario =@id
-                    //            ";
-                    //cmd = new SqlCommand();
-                    //cmd.Transaction = transaction;
-                    //cmd.CommandText = query;
-                    //cmd.Connection = connection;
-                    //cmd.Parameters.Add(new SqlParameter("id", user.Id));
-                    //cmd.Parameters.Add(new SqlParameter("nombre", user.Name));
-                    //cmd.Parameters.Add(new SqlParameter("telefono", user.Phone));
-                    //cmd.Parameters.Add(new SqlParameter("apellido", user.LastName));
-                    //cmd.Parameters.Add(new SqlParameter("direccion", user.Adress));
-                    //cmd.Parameters.Add(new SqlParameter("dni", user.Dni));
-                    ////cmd.Parameters.Add(new SqlParameter("dvh", calculateDVH(user)));
-
-                    //cmd.ExecuteNonQuery();
                     transaction.Commit();
-
+           
                     connection.Close();
+
+                    updateDVV();
+
                     return true;
                 }
                 catch
@@ -517,7 +458,7 @@ namespace AccesoDatos
                     return false;
                     throw;
                 }
-                //updateDVV();
+               
             }
             catch
             {
@@ -526,26 +467,24 @@ namespace AccesoDatos
                 throw;
             }
         }
+        public string calculateDVH(UserModel user)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(user.Name);
+            sb.Append(user.Password);
+            sb.Append(user.Blocked.ToString());
+            sb.Append(user.Dni);
+            sb.Append(user.Mail);
+            sb.Append(user.Phone);
+            sb.Append(user.Nickname);
+            sb.Append(user.Tries.ToString());
 
-        //public string calculateDVH(UserModel user)
-        //{
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.Append(user.Name);
-        //    sb.Append(user.Password);
-        //    sb.Append(user.Blocked.ToString());
-        //    sb.Append(user.Dni);
-        //    sb.Append(user.Mail);
-        //    sb.Append(user.Phone);
-        //    sb.Append(user.Nickname);
-        //    sb.Append(user.Tries.ToString());
-
-        //    //return DVService.getDV(sb.ToString());
-        //}
-        //public string calculateDVV(List<UserModel> list)
-        //{
-        //    //return list.Aggregate<UserModel, String>("", (a, b) => DVService.getDV(a + b.dvh));
-        //}
-
+            return DVService.getDV(sb.ToString());
+        }
+        public string calculateDVV(List<UserModel> list)
+        {
+            return list.Aggregate<UserModel, String>("", (a, b) => DVService.getDV(a + b.dvh));
+        }
         public string getDVV()
         {
             try
@@ -584,48 +523,45 @@ namespace AccesoDatos
                 throw ex;
             }
         }
+        public void updateDVV()
+        {
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
 
-        //public void updateDVV()
-        //{
-        //    try
-        //    {
-        //        SqlConnection connection = ConnectionSingleton.getConnection();
+                String dvvString = calculateDVV(getAll());
+                if (connection.State != ConnectionState.Open) connection.Open();
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = $@"
+                                             UPDATE [tfi].[dbo].[dvv]
+		                                        SET [dvv] = @dvv
+		                                        WHERE [tablename] = @tablename ;
+                                           ";
 
-        //        String dvvString = calculateDVV(getAll());
-        //        if (connection.State != ConnectionState.Open) connection.Open();
-        //        using (IDbCommand command = connection.CreateCommand())
-        //        {
-        //            command.Connection = connection;
-        //            command.CommandText = $@"
-        //                                     UPDATE [campo].[dbo].[dvv]
-		      //                                  SET [dvv] = @dvv
-		      //                                  WHERE [tablename] = @tablename ;
+                    IDbDataParameter dvv = command.CreateParameter();
+                    dvv.ParameterName = "dvv";
+                    dvv.Value = dvvString;
+                    command.Parameters.Add(dvv);
 
-        //                                   ";
+                    IDbDataParameter tablename = command.CreateParameter();
+                    tablename.ParameterName = "tablename";
+                    tablename.Value = tableName;
+                    command.Parameters.Add(tablename);
 
-        //            IDbDataParameter dvv = command.CreateParameter();
-        //            dvv.ParameterName = "dvv";
-        //            dvv.Value = dvvString;
-        //            command.Parameters.Add(dvv);
-
-
-        //            IDbDataParameter tablename = command.CreateParameter();
-        //            tablename.ParameterName = "tablename";
-        //            tablename.Value = tableName;
-        //            command.Parameters.Add(tablename);
-
-        //            command.ExecuteNonQuery();
-        //        }
-        //        connection.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // TODO: ver como hacemos el handle de este error
-        //        Console.Write(ex.ToString());
-        //        throw ex;
-        //    }
-        //}
-
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+                //                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                // TODO: ver como hacemos el handle de este error
+                Console.Write(ex.ToString());
+                throw ex;
+            }
+        }
         public void UpdateAllDV()
         {
             List<UserModel> list = getAll();
@@ -633,6 +569,10 @@ namespace AccesoDatos
             {
                 update(user);
             });
+        }
+        void IDVDAO<UserModel>.update(UserModel obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

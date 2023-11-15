@@ -56,6 +56,10 @@
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TFI2023-master\DigitosVerificadoresLib\DigitosVerificadoresLib.csproj">
+      <Project>{212b76d5-c82d-496e-9e1e-bb6d99f4acf5}</Project>
+      <Name>DigitosVerificadoresLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccesoDatos\DataAccess.csproj">
       <Project>{BF2CD5DB-24EB-4016-A71A-70596CBEDE6B}</Project>
       <Name>DataAccess</Name>

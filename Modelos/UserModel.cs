@@ -19,7 +19,6 @@ namespace Model
         public String Nickname { get; set; }
         public String Password { get; set; }
         public String Mail { get; set; }
-        //public Language Language { get; set; }
         public String Phone { get; set; }
         public String Adress { get; set; }
         public int Tries { get; set; }
@@ -31,6 +30,7 @@ namespace Model
                 return _Permissions;
             }
         }
+        //public Language Language { get; set; }
         public string dvh { get; set; }
     }
 }
