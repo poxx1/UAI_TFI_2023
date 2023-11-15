@@ -11,7 +11,11 @@
             <asp:TextBox ID="TextBox1" runat="server" Width="200px"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Realizar solicitud" Width="132px" />
+            Descripcion<br />
+            <asp:TextBox ID="TextBox2" runat="server" Width="200px"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Realizar solicitud" Width="132px" OnClick="Button1_Click" />
             <br />
         </div>
     </main>

@@ -9,6 +9,8 @@
 
 namespace Vista
 {
+
+
     public partial class ListSolicitud
     {
 

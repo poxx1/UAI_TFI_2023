@@ -1,10 +1,4 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace Modelos
 {
@@ -32,6 +26,9 @@ namespace Modelos
                 return _session;
             }
         }
-
+        public static int getID()
+        {
+            return _session.user.Id;
+        }
     }
 }

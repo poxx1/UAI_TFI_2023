@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{96D34A33-ACCC-4C14-A61E-4391B060ECE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitosVerificadoresLib", "..\TFI2023-master\DigitosVerificadoresLib\DigitosVerificadoresLib.csproj", "{212B76D5-C82D-496E-9E1E-BB6D99F4ACF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D34A33-ACCC-4C14-A61E-4391B060ECE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212B76D5-C82D-496E-9E1E-BB6D99F4ACF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212B76D5-C82D-496E-9E1E-BB6D99F4ACF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212B76D5-C82D-496E-9E1E-BB6D99F4ACF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212B76D5-C82D-496E-9E1E-BB6D99F4ACF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

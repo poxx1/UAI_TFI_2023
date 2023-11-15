@@ -1,13 +1,97 @@
-﻿using System;
+﻿using Modelos;
+using Servicios;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace AccesoDatos
 {
     public class SolicitudRepository
     {
+        public List<InterpretacionModel> listSolicitudes()
+        {
+            SqlConnection connection = ConnectionSingleton.getConnection();
+            List<InterpretacionModel> list = new List<InterpretacionModel>();
 
+            try
+            {
+                connection.Open();
+                var cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                var sql = $@"select * from Interpretaciones";
+
+                cmd.CommandText = sql;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    InterpretacionModel mm = new InterpretacionModel();
+                    mm.ID = reader.GetInt32(reader.GetOrdinal("ID"));
+                    mm.Name = reader.GetString(reader.GetOrdinal("Nombre"));
+                    mm.Fecha = reader.GetString(reader.GetOrdinal("Fecha"));
+                    mm.Description = reader.GetString(reader.GetOrdinal("Descripcion"));
+                    mm.isApproved = bool.Parse(reader.GetString(reader.GetOrdinal("Aprobada")));
+
+                    list.Add(mm);
+                }
+
+                reader.Close();
+                connection.Close();
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                throw e;
+            }
+        }
+        public bool createSolicitud(InterpretacionModel interpretacion)
+        {
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                string query = $@"INSERT into Interpretaciones
+                            ([Nombre]
+                            ,[Descripcion]
+                            ,[ID_user]
+                            ,[Aprobada]
+                            ,[Fecha])            
+                        VALUES
+                            ( @Nombre
+                            , @Descripcion
+                            , @ID_user
+                            , @Aprobada
+                            , @Fecha
+                            )";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                cmd.Parameters.Add(new SqlParameter("Nombre", interpretacion.Name));
+                cmd.Parameters.Add(new SqlParameter("Descripcion", interpretacion.Description));
+                cmd.Parameters.Add(new SqlParameter("ID_user", interpretacion.ID_user));
+                cmd.Parameters.Add(new SqlParameter("Aprobada", interpretacion.isApproved));
+                cmd.Parameters.Add(new SqlParameter("Fecha", interpretacion.Fecha));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool deleteSolicitud(InterpretacionModel interpretacion)
+        {
+            return true;
+        }
     }
 }

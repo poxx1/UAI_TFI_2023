@@ -1,13 +1,26 @@
-﻿using System;
+﻿using AccesoDatos;
+using Modelos;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controladores
 {
     public class SolicitudService
     {
+        SolicitudRepository repository = new SolicitudRepository();
 
+        public bool createSolicitud(InterpretacionModel interpretacion)
+        {
+            return repository.createSolicitud(interpretacion);
+        }
+
+        public List<InterpretacionModel> listSolicitud()
+        {
+            return repository.listSolicitudes();
+        }
+
+        public bool deleteSolicitud()
+        {
+            return false;
+        }
     }
 }
