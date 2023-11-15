@@ -47,6 +47,7 @@
     <Compile Include="BackupRepository.cs" />
     <Compile Include="BitacoraRepository.cs" />
     <Compile Include="PermissionRepository.cs" />
+    <Compile Include="SolicitudRepository.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

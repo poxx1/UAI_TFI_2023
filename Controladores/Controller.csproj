@@ -52,6 +52,7 @@
     <Compile Include="PermissionService.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolicitudService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,8 +9,6 @@
 
 namespace Vista
 {
-
-
     public partial class Contact
     {
 

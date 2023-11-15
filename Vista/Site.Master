@@ -51,6 +51,7 @@
                         <asp:DropDownList class="customDrop" id="AdminList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="AdminList_SelectedIndexChanged"></asp:DropDownList>
                         <asp:DropDownList class="customDrop" id="UserList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="UserList_SelectedIndexChanged"></asp:DropDownList>
                         <asp:DropDownList class="customDrop" id="PermissionList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="PermissionList_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:DropDownList class="customDrop" id="SolicitudesList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="SolicitudesListIndexChanged"></asp:DropDownList>
                         <li class="nav-item"><a class="nav-link logOut" runat="server" href="~/LogOut">Logout</a></li>
                         <li id="username" class="nav-item"><a class="nav-link logOut" runat="server">
                             <asp:Label class="customLabel" ID="Label1" runat="server" Text="username"></asp:Label>

@@ -380,8 +380,7 @@ button,
 [type=reset],
 [type=submit] {
   -webkit-appearance: button;
-    height: 29px;
-}
+    }
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),

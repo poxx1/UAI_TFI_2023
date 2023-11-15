@@ -48,6 +48,17 @@ namespace Vista
                 AdminList.DataSource = null;
                 AdminList.DataSource = adminlist;
                 AdminList.DataBind();
+
+                List<string> solicitudeslist = new List<string>()
+                    {
+                        "Menu de solicitudes",
+                        "Listar solicitudes",
+                        "Aprobar solicitudes",
+                        "Realizar solicitud"
+                    };
+                SolicitudesList.DataSource = null;
+                SolicitudesList.DataSource = solicitudeslist;
+                SolicitudesList.DataBind();
                 #endregion
 
                 UserModel user = new UserModel();
@@ -110,6 +121,20 @@ namespace Vista
                 {
                     case "Bitacora": HttpContext.Current.Response.Redirect("Bitacora.aspx"); break;
                     case "Backup": HttpContext.Current.Response.Redirect("Backup.aspx"); break;
+                    default: HttpContext.Current.Response.Redirect("default.aspx"); break;
+                }
+            }
+        }
+
+        protected void SolicitudesListIndexChanged(object sender, EventArgs e)
+        {
+            if (Page.IsPostBack)
+            {
+                switch (SolicitudesList.SelectedItem.Text)
+                {
+                    case "Listar solicitudes": HttpContext.Current.Response.Redirect("ListSolicitud.aspx"); break;
+                    case "Aprobar solicitudes": HttpContext.Current.Response.Redirect("ListSolicitud.aspx"); break;
+                    case "Realizar solicitud": HttpContext.Current.Response.Redirect("AddSolicitud.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }

@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddSolicitud.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Bitacora.aspx" />
     <Content Include="Customs\ValidateDNI.ascx" />
@@ -113,6 +114,7 @@
     <Content Include="DeleteUser.aspx" />
     <Content Include="EditUser.aspx" />
     <Content Include="FamiliaPatente.aspx" />
+    <Content Include="ListSolicitud.aspx" />
     <Content Include="ListUser.aspx" />
     <Content Include="LogOut.aspx" />
     <Content Include="AddUser.aspx" />
@@ -205,6 +207,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSolicitud.aspx.cs">
+      <DependentUpon>AddSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddSolicitud.aspx.designer.cs">
+      <DependentUpon>AddSolicitud.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Backup.aspx.cs">
       <DependentUpon>Backup.aspx</DependentUpon>
@@ -261,6 +270,13 @@
     </Compile>
     <Compile Include="FamiliaPatente.aspx.designer.cs">
       <DependentUpon>FamiliaPatente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListSolicitud.aspx.cs">
+      <DependentUpon>ListSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListSolicitud.aspx.designer.cs">
+      <DependentUpon>ListSolicitud.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListUser.aspx.cs">
       <DependentUpon>ListUser.aspx</DependentUpon>
