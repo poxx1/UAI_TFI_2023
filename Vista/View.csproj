@@ -107,6 +107,8 @@
   <ItemGroup>
     <Content Include="Backup.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="Customs\ValidateDNI.ascx" />
+    <Content Include="Customs\ValidateEmail.ascx" />
     <Content Include="Customs\ValidatePassword.ascx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="EditUser.aspx" />
@@ -217,6 +219,20 @@
     </Compile>
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customs\ValidateDNI.ascx.cs">
+      <DependentUpon>ValidateDNI.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customs\ValidateDNI.ascx.designer.cs">
+      <DependentUpon>ValidateDNI.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Customs\ValidateEmail.ascx.cs">
+      <DependentUpon>ValidateEmail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customs\ValidateEmail.ascx.designer.cs">
+      <DependentUpon>ValidateEmail.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customs\ValidatePassword.ascx.cs">
       <DependentUpon>ValidatePassword.ascx</DependentUpon>
