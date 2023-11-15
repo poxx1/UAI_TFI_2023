@@ -146,7 +146,6 @@ namespace Controladores
             }
 
         }
-
         public List<String> checkintegrity()
         {
             List<String> errors = new List<string>();
@@ -167,7 +166,6 @@ namespace Controladores
 
             return errors;
         }
-
         public void reacalcDV()
         {
             userRepository.UpdateAllDV();

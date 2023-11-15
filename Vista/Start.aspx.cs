@@ -3,7 +3,6 @@ using System.Web;
 using System.Web.UI.WebControls;
 using Model;
 using Servicios;
-
 using LogService = Controladores.Login;
 
 namespace Vista
@@ -32,7 +31,17 @@ namespace Vista
                 GlobalMessage.MessageBox(this, $"Login de {user.Nickname} realizado con exito!");
             }
             else
+                if (login.isCorruputed == true) {
+                foreach (var item in login.corrputionList)
+                {
+                    GlobalMessage.MessageBox(this, $"DB Corrputa. {item}");
+                }
+
+            }
+            else
+            {
                 GlobalMessage.MessageBox(this, $"Login de {user.Nickname} ha fallado!");
+            }
         }
 
         private bool logIn(UserModel user)

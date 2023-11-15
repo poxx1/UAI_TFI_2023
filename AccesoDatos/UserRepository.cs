@@ -15,7 +15,7 @@ namespace AccesoDatos
     {
         PermissionRepository permisosRepository;
         //LanguageRepository languageRepository;
-        private string tableName = "usuarios";
+        private string tableName = "Users";
 
         public UserRepository()
         {

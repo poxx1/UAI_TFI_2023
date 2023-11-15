@@ -48,6 +48,7 @@
     <Compile Include="BackupService.cs" />
     <Compile Include="BitacoraService.cs" />
     <Compile Include="Gmail.cs" />
+    <Compile Include="IntegrityService.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PermissionService.cs" />
     <Compile Include="Security.cs" />

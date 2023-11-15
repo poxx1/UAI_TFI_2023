@@ -125,7 +125,6 @@ namespace Vista
                 }
             }
         }
-
         protected void SolicitudesListIndexChanged(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -138,6 +137,9 @@ namespace Vista
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }
+        }
+        protected void Interpretar(object sender, EventArgs e) {
+            HttpContext.Current.Response.Redirect("Interprete.aspx");
         }
     }
 }
