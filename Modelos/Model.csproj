@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Component.cs" />
     <Compile Include="Family.cs" />
+    <Compile Include="GmailModel.cs" />
     <Compile Include="LogModel.cs" />
     <Compile Include="Patent.cs" />
     <Compile Include="PermissionsEnum.cs" />

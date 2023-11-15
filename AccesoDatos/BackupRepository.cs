@@ -17,7 +17,7 @@ namespace AccesoDatos
             StringBuilder queryText = new StringBuilder();
             directorio = directorio.Replace("//", "\\");
             queryText.Append(" USE MASTER ");
-            queryText.Append(" BACKUP DATABASE campo ");
+            queryText.Append(" BACKUP DATABASE tfi ");
 
             for (int i = 0; i < partes; i++)
             {
@@ -54,14 +54,12 @@ namespace AccesoDatos
             connection.Open();
             StringBuilder queryText = new StringBuilder();
             queryText.Append(" USE MASTER ");
-
-            queryText.Append(" alter database [campo]  ");
+            queryText.Append(" alter database [tfi]  ");
             queryText.Append(" set offline with rollback immediate ");
-            queryText.Append(" RESTORE DATABASE campo ");
-            //FROM  DISK = '" + directorio + "' WITH REPLACE");
+            queryText.Append(" RESTORE DATABASE tfi ");
             queryText.Append(directorio);
             queryText.Append(" WITH REPLACE ");
-            queryText.Append(" alter database [campo]  ");
+            queryText.Append(" alter database [tfi]  ");
             queryText.Append(" set online with rollback immediate ");
             SqlCommand query = new SqlCommand(queryText.ToString(), connection);
             try
