@@ -22,7 +22,7 @@
             <asp:FileUpload ID="FileUpload2" runat="server" Width="539px" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Realizar restore" />
+            <asp:Button ID="Button1" runat="server" Text="Realizar restore" OnClick="Button1_Click" />
             <br />
             <br />
         </div>

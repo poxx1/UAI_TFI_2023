@@ -51,13 +51,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// TextBox2 control.
+        /// CustomPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::Vista.Customs.ValidatePassword CustomPassword;
 
         /// <summary>
         /// Button1 control.

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using System.Web.UI.WebControls;
 using Model;
 using Servicios;
 
@@ -22,7 +23,7 @@ namespace Vista
         protected void Button1_Click(object sender, EventArgs e)
         {
             user.Nickname = TextBox1.Text;
-            user.Password = TextBox2.Text;
+            user.Password = CustomPassword.getText();
 
             if (logIn(user))
             {

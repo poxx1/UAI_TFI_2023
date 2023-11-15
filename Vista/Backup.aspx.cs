@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Controladores;
+using System;
 using System.IO;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,19 +11,32 @@ namespace Vista
 {
     public partial class Backup : System.Web.UI.Page
     {
+        BackupService backup = new BackupService();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void Button2_Click(object sender, EventArgs e)
         {
-            //No se puede, csm
-            //string ruta = Path.GetFullPath(FileUpload1.PostedFile);
-            //Label2.Text = ruta;
+            checkCreateDirectory();
+            //Backup
+            backup.realizarBackup(Environment.SpecialFolder.MyDocuments.ToString()+"//Backup"); ;
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            checkCreateDirectory();
+            //Restore
+            backup.realizarRestore(Environment.SpecialFolder.MyDocuments.ToString() + "//Backup");
+        }
+        private void checkCreateDirectory()
+        {
+            string path = Environment.SpecialFolder.MyDocuments.ToString() + "//Backup";
 
-            var file = FileUpload1;
-
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
     }
 }
