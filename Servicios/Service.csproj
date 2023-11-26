@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionSingleton.cs" />
+    <Compile Include="CursosService.cs" />
     <Compile Include="GlobalMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionService.cs" />

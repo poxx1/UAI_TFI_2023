@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BackupRepository.cs" />
     <Compile Include="BitacoraRepository.cs" />
+    <Compile Include="CursosRepository.cs" />
     <Compile Include="PermissionRepository.cs" />
     <Compile Include="SolicitudRepository.cs" />
     <Compile Include="UserRepository.cs" />

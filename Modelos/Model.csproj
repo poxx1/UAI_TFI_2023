@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component.cs" />
+    <Compile Include="CursosModel.cs" />
     <Compile Include="Family.cs" />
     <Compile Include="GmailModel.cs" />
     <Compile Include="InterpretacionModel.cs" />

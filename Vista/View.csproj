@@ -140,6 +140,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="MenuAgregarItems.aspx" />
     <Content Include="MenuCarrito.aspx" />
     <Content Include="MenuItems.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -327,6 +328,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAgregarItems.aspx.cs">
+      <DependentUpon>MenuAgregarItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuAgregarItems.aspx.designer.cs">
+      <DependentUpon>MenuAgregarItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuCarrito.aspx.cs">
       <DependentUpon>MenuCarrito.aspx</DependentUpon>
