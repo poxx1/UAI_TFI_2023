@@ -1,0 +1,41 @@
+### Errores pendientes de modificacion ###
+
+1. Cuando modificas un dato en la DB, te avisa que esta corrupto, pero si volves a intentar loguearte, pisa ese error de una
+	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
+	revalidar todo y fue.
+
+2. Falta realizar toda la parte de compras
+
+3. Hay que revisar Familias/Pantentes de que esten funcionando ok.
+
+4. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
+
+5. Agregar la realizacion de la factura y su envio correspondiente por email.
+
+6. Permitir mandar la factura por PDF.
+
+7. Agregar la validacion de contrasenia para 6 caracteres.
+
+8. Agregar el multi-idioma
+
+9. Hacer los 3 webservices
+A. Ver las solicitudes pendientes
+B. Ver todas las solicitudes
+C. Obtener la cantidad de solicitudes aprobadas o desaprobadas
+
+10. Agregar los patrones como sea.
+
+11. Hacer 3 salidas XML, las mismas que los 3 webservices.
+A.
+B.
+C.
+
+12. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
+
+13. Hacer el diagrama de Klein.
+
+14. Manual de instalacion.
+
+15. Manual de usuario/uso.
+
+16. Hacer toda la puta carpeta

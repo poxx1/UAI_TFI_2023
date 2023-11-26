@@ -140,6 +140,8 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="MenuCarrito.aspx" />
+    <Content Include="MenuItems.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -325,6 +327,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MenuCarrito.aspx.cs">
+      <DependentUpon>MenuCarrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuCarrito.aspx.designer.cs">
+      <DependentUpon>MenuCarrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItems.aspx.cs">
+      <DependentUpon>MenuItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuItems.aspx.designer.cs">
+      <DependentUpon>MenuItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{A01C98EA-6925-485C-9453-81B3453177BE}"
 	ProjectSection(SolutionItems) = preProject
 		newdbscript.txt = newdbscript.txt
+		Pendientes.txt = Pendientes.txt
 		..\Desktop\SLQDBTFI.sql = ..\Desktop\SLQDBTFI.sql
 	EndProjectSection
 EndProject
