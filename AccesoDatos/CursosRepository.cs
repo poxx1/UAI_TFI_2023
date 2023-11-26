@@ -109,5 +109,10 @@ namespace AccesoDatos
                 throw ex;
             }
         }
+
+        public void updateCurso(CursosModel curso)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

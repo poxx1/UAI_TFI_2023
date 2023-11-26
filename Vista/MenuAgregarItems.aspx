@@ -19,6 +19,6 @@
         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
     </p>
     <p>
-        <asp:Button ID="Button1" runat="server" Text="Agregar curso" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar curso" />
     </p>
 </asp:Content>

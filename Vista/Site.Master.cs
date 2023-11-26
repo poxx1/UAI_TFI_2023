@@ -56,6 +56,18 @@ namespace Vista
                 SolicitudesList.DataSource = null;
                 SolicitudesList.DataSource = solicitudeslist;
                 SolicitudesList.DataBind();
+
+                List<string> comprasList = new List<string>()
+                    {
+                        "Menu de compras",
+                        "Cursos disponibles",
+                        "Carrito de compras",
+                        "Agregar cursos",
+                        "Editar cursos"
+                    };
+                ComprasList.DataSource = null;
+                ComprasList.DataSource = comprasList;
+                ComprasList.DataBind();
                 #endregion
 
                 UserModel user = new UserModel();
@@ -80,8 +92,9 @@ namespace Vista
                     PermissionList.Enabled = false;
                 if (!strings.Contains("Bitacora"))
                     AdminList.Enabled = false;
-                
-                Label1.Text = "Usuario: " + user.Nickname + " | Rol: " + tipoUsuario;
+
+                //Label1.Text = "Usuario: " + user.Nickname + " | Rol: " + tipoUsuario;
+                Label1.Text = user.Nickname + " | " + tipoUsuario;
             }
         }
         protected void UserList_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,5 +151,20 @@ namespace Vista
         protected void Interpretar(object sender, EventArgs e) {
             HttpContext.Current.Response.Redirect("Interprete.aspx");
         }
+        protected void ComprasListIndexChanged(object sender, EventArgs e)
+        {
+            if (Page.IsPostBack)
+            {
+                switch (ComprasList.SelectedItem.Text)
+                {
+                    case "Cursos disponibles": HttpContext.Current.Response.Redirect("MenuItems.aspx"); break;
+                    case "Carrito de compras": HttpContext.Current.Response.Redirect("MenuCarrito.aspx"); break;
+                    case "Agregar cursos": HttpContext.Current.Response.Redirect("MenuAgregarItems.aspx"); break;
+                    case "Editar cursos": HttpContext.Current.Response.Redirect("MenuAgregarItems.aspx"); break;
+                    default: HttpContext.Current.Response.Redirect("default.aspx"); break;
+                }
+            }
+        }
+        
     }
 }

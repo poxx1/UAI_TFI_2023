@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelos;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,17 @@ namespace Vista
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            CursosModel curso = new CursosModel();
+            curso.Name = TextBox1.Text;
+            curso.Description = TextBox2.Text;
+            curso.Price = float.Parse(TextBox3.Text);
+
+            CursosService cs = new CursosService();
+            cs.addCurso(curso);
         }
     }
 }

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BackupService.cs" />
     <Compile Include="BitacoraService.cs" />
+    <Compile Include="CursosService.cs" />
     <Compile Include="Gmail.cs" />
     <Compile Include="IntegrityService.cs" />
     <Compile Include="Login.cs" />

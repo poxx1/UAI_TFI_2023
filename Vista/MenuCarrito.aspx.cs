@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using Servicios;
+using System;
 
 namespace Vista
 {
     public partial class MenuCarrito : System.Web.UI.Page
     {
+        CursosService cs = new CursosService();
         protected void Page_Load(object sender, EventArgs e)
         {
             //Listar cursos
+            ListBox1.DataSource = cs.listCursos();
+            ListBox1.DataBind();
         }
-
-        
     }
 }
