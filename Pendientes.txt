@@ -13,13 +13,6 @@
 13. Menu de Backup/Restore o recalcular dijitos no esta hecho.
 
 //Pulir detalles
-
-5. Agregar la realizacion de la factura y su envio correspondiente por email.
-
-6. Permitir mandar la factura por PDF. // Hay que validar que la cree, faltan arreglar un par de cositas
-
-2. Falta realizar toda la parte de compras //Hay que arreglar bugs - la lista que no agrega
-
 3. Hay que revisar Familias/Pantentes de que esten funcionando ok.
 
 4. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.

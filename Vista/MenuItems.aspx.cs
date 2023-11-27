@@ -69,8 +69,7 @@ namespace Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //items.Add(ListBox1.SelectedValue.ToString());
-            //Session["carrito"] = items;
+            
         }
     }
 }

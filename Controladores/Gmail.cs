@@ -20,8 +20,6 @@ namespace Controladores
                 email.To.Add(gmailModel.to);
                 email.Subject = gmailModel.subject;
                 email.Body = gmailModel.body;
-                //email.Attachments.Add(item);
-                // fytkiskqpifjnpzi
                 SmtpServer.Credentials = new NetworkCredential(gmailModel.from, "keyrxjxuosgtjdbg");
                 SmtpServer.Send(email);
             }
@@ -33,13 +31,17 @@ namespace Controladores
         }
         public bool stablishConnection()
         {
-            SmtpServer = new SmtpClient("smtp.gmail.com", 587); //  587
-            SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-            SmtpServer.Timeout = 5000;
-            SmtpServer.EnableSsl = true;
-            SmtpServer.UseDefaultCredentials = false;
+            try
+            {
+                SmtpServer = new SmtpClient("smtp.gmail.com", 587); //  587
+                SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                SmtpServer.Timeout = 5000;
+                SmtpServer.EnableSsl = true;
+                SmtpServer.UseDefaultCredentials = false;
 
-            return true;
+                return true;
+            }
+            catch { return false; }
         }
     }
 }
