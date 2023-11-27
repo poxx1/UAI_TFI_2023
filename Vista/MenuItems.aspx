@@ -8,7 +8,7 @@
             Desde este menu podra agregar sus items al carrito, y luego en el mismo, finalizar la compra.<br />
             <br />
             Lista de cursos<br />
-            <asp:ListBox ID="ListBox1" runat="server" Height="126px" Width="513px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server" Height="126px" Width="655px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
             <br />
             <br />
             Precio:

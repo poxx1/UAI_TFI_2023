@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Modelos\Model.csproj", "{E7AF3618-CAED-4B9E-8822-B3BAFDCE62D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controladores\Controller.csproj", "{9109343F-BD9D-4D78-BB6B-34A059316E36}"
+	ProjectSection(ProjectDependencies) = postProject
+		{96D34A33-ACCC-4C14-A61E-4391B060ECE6} = {96D34A33-ACCC-4C14-A61E-4391B060ECE6}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Servicios\Service.csproj", "{4C2AEA40-7557-461E-98CB-E2C6EBB03930}"
 EndProject

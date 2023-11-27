@@ -4,7 +4,7 @@
 	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
 	revalidar todo y fue.
 
-2. Falta realizar toda la parte de compras //Empezada
+2. Falta realizar toda la parte de compras //Hay que arreglar bugs y terminarla
 
 3. Hay que revisar Familias/Pantentes de que esten funcionando ok.
 
@@ -16,16 +16,16 @@
 
 7. Agregar la validacion de contrasenia para 6 caracteres.
 
-8. Agregar el multi-idioma
+8. Agregar el multi-idioma > Se puede hacer nuevo? No se necesita agregar un idioma o editarlo en vivo.
 
-9. Hacer los 3 webservices
+9. Hacer los 3 webservices > Falta llamarlos desde algun lado
 A. Cantidad de solicitudes pendientes
 B. Cantidad de solicitudes ya aprobadas
 C. Cantidad de solicitudes totales
 
 10. Agregar los patrones como sea.
 
-11. Hacer 3 salidas XML, las mismas que los 3 webservices.
+11. Hacer 3 salidas XML, las mismas que los 3 webservices. > Usar los webservices para mandar el resultado.
 A. Cantidad de solicitudes pendientes
 B. Cantidad de solicitudes ya aprobadas
 C. Cantidad de solicitudes totales

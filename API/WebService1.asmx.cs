@@ -1,4 +1,6 @@
-﻿using System.Web.Services;
+﻿using AccesoDatos;
+using System.Linq;
+using System.Web.Services;
 
 namespace API
 {
@@ -12,11 +14,20 @@ namespace API
     // [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
+        SolicitudRepository sr = new SolicitudRepository();
 
         [WebMethod]
-        public string HelloWorld()
+        public int getSolicitudesTotales()
         {
-            return "Hello World";
+            return sr.listSolicitudes().Count();
+        }
+        public int getSolicitudesAprobadas()
+        {
+            return sr.listSolicitudes().Where(x => x.isApproved == true).ToList().Count();
+        }
+        public int getSolicitudesPendientes()
+        {
+            return sr.listSolicitudes().Where(x => x.isApproved != true).ToList().Count();
         }
     }
 }
