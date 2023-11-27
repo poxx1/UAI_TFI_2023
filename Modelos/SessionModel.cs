@@ -30,5 +30,7 @@ namespace Modelos
         {
             return _session.user.Id;
         }
+
+        public static UserModel GetUser() { return _session.user; }
     }
 }
