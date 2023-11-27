@@ -6,8 +6,6 @@
 
 8. Agregar el multi-idioma > Se puede hacer nuevo? No se necesita agregar un idioma o editarlo en vivo.
 
-9. Llamar a los 3 webservices // Hace faltar tener una vista? Entiendo que si
-
 10. Agregar los patrones como sea.
 
 13. Menu de Backup/Restore o recalcular dijitos no esta hecho.

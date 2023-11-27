@@ -42,7 +42,8 @@ namespace Vista
                         "Menu de servicios",
                         "Bitacora",
                         "Backup",
-                        "Salidas XML"
+                        "Salidas XML",
+                        "Informes WS"
                     };
                 AdminList.DataSource = null;
                 AdminList.DataSource = adminlist;
@@ -134,6 +135,7 @@ namespace Vista
                     case "Bitacora": HttpContext.Current.Response.Redirect("Bitacora.aspx"); break;
                     case "Backup": HttpContext.Current.Response.Redirect("Backup.aspx"); break;
                     case "Salidas XML": HttpContext.Current.Response.Redirect("salidasXML.aspx"); break;
+                    case "Informes WS":HttpContext.Current.Response.Redirect("llamarWebService.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }

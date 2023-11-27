@@ -16,8 +16,8 @@ namespace Controladores
         {
             WebService1 webService1 = new WebService1();
             if (webServiceName == "solicitudesAprobadas") return webService1.getSolicitudesAprobadas().ToString();
-            if (webServiceName == "solicitudesPendientes") return webService1.getSolicitudesAprobadas().ToString();
-            if (webServiceName == "solicitudesTotales") return webService1.getSolicitudesAprobadas().ToString();
+            if (webServiceName == "solicitudesPendientes") return webService1.getSolicitudesPendientes().ToString();
+            if (webServiceName == "solicitudesTotales") return webService1.getSolicitudesTotales().ToString();
             else return "";
         }
         public List<InterpretacionModel> solicitudesAprobadas() 
