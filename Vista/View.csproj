@@ -143,6 +143,7 @@
     <Content Include="MenuAgregarItems.aspx" />
     <Content Include="MenuCarrito.aspx" />
     <Content Include="MenuItems.aspx" />
+    <Content Include="salidasXML.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -351,6 +352,13 @@
       <DependentUpon>MenuItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="salidasXML.aspx.cs">
+      <DependentUpon>salidasXML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="salidasXML.aspx.designer.cs">
+      <DependentUpon>salidasXML.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

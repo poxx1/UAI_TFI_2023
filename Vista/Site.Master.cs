@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Vista
 {
@@ -40,7 +41,8 @@ namespace Vista
                     {
                         "Menu de servicios",
                         "Bitacora",
-                        "Backup"
+                        "Backup",
+                        "Salidas XML"
                     };
                 AdminList.DataSource = null;
                 AdminList.DataSource = adminlist;
@@ -131,6 +133,7 @@ namespace Vista
                 {
                     case "Bitacora": HttpContext.Current.Response.Redirect("Bitacora.aspx"); break;
                     case "Backup": HttpContext.Current.Response.Redirect("Backup.aspx"); break;
+                    case "Salidas XML": HttpContext.Current.Response.Redirect("salidasXML.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }
@@ -164,7 +167,6 @@ namespace Vista
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }
-        }
-        
+        }   
     }
 }

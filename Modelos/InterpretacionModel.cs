@@ -1,5 +1,9 @@
-﻿namespace Modelos
+﻿using System;
+
+namespace Modelos
 {
+    [Serializable]
+
     public class InterpretacionModel
     {
         public int ID { get; set; } 
