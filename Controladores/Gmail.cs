@@ -8,19 +8,21 @@ namespace Controladores
     public class Gmail
     {
         SmtpClient SmtpServer;
-        public bool sendEmail(GmailModel gmailModel)
+        public bool sendEmail(GmailModel gmailModel,string path)
         {
             try
             {
                 stablishConnection();
                 MailMessage email = new MailMessage();
+                Attachment pdf = new Attachment(path);
+                email.Attachments.Add(pdf);
                 email.From = new MailAddress(gmailModel.from);
                 email.To.Add(gmailModel.to);
                 email.Subject = gmailModel.subject;
                 email.Body = gmailModel.body;
                 //email.Attachments.Add(item);
-
-                SmtpServer.Credentials = new NetworkCredential(gmailModel.from, "fytkiskqpifjnpzi");
+                // fytkiskqpifjnpzi
+                SmtpServer.Credentials = new NetworkCredential(gmailModel.from, "keyrxjxuosgtjdbg");
                 SmtpServer.Send(email);
             }
             catch (Exception ex)
@@ -31,7 +33,7 @@ namespace Controladores
         }
         public bool stablishConnection()
         {
-            SmtpServer = new SmtpClient("smtp.gmail.com", 587);
+            SmtpServer = new SmtpClient("smtp.gmail.com", 587); //  587
             SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
             SmtpServer.Timeout = 5000;
             SmtpServer.EnableSsl = true;

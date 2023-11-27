@@ -37,16 +37,7 @@ namespace Vista
             l.Add("Curso 3");
             p.create(l);
 
-            // FALTA enviar por email el pdf de la compra//Quitar item
-            Gmail gmail = new Gmail();
-            GmailModel gmailModel = new GmailModel();
-
-            gmailModel.from = "julianlastra.kz@gmail.com";
-            gmailModel.to = "julianlastra.kz@gmail.com";
-            gmailModel.subject = "Factura de su compra";
-            gmailModel.body = "Estimado usuario, <br><br> Se adjunta la factura de su compra.<br><br> Muchas gracias.";            
-
-            gmail.sendEmail(gmailModel);
+            //gmail.sendEmail(gmailModel);
         }
     }
 }

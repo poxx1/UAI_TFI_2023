@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Modelos;
+using Org.BouncyCastle.Crypto.Macs;
 using Spire.Pdf.Tables;
 using Spire.Pdf.Utilities;
 using System;
@@ -34,7 +35,7 @@ namespace Controladores
             cell1.BorderColor = new iTextSharp.text.BaseColor(200, 200, 210);
             cell1.BackgroundColor = new iTextSharp.text.BaseColor(210, 210, 210);
 
-            cell2 = new PdfPCell(new Phrase("\nFactura - [B] - Consumidor Final - SayIT \n", new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.BOLD)));
+            cell2 = new PdfPCell(new Phrase("\n| SayIT | Factura - [B] - Consumidor Final\n\r", new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.BOLD)));
 
             cell2.HorizontalAlignment = Element.ALIGN_CENTER;
             //cell2.VerticalAlignment = Element.ALIGN_JUSTIFIED_ALL;
@@ -45,7 +46,7 @@ namespace Controladores
             table.AddCell(cell2);
             cell1 = new PdfPCell(new Phrase($"Fecha de la factura: {DateTime.Now.ToString("dd/MM/yy hh:mm:ss")} \n", new Font(Font.FontFamily.TIMES_ROMAN, 14)));
             cell1.HorizontalAlignment = Element.ALIGN_LEFT;
-            cell1.VerticalAlignment = Element.ALIGN_JUSTIFIED_ALL;
+            //cell1.VerticalAlignment = Element.ALIGN_JUSTIFIED_ALL;
             cell1.Colspan = 2;
             table.AddCell(cell1);
 
@@ -77,8 +78,8 @@ namespace Controladores
             #region Header de los items
             PdfPTable tableHeader = new PdfPTable(2); //lista.Count() El numero determina las columnas
 
-            tableHeader.AddCell(new Phrase("\n " + "Nombre" + "\n ", new Font(Font.FontFamily.TIMES_ROMAN, 16)));
-            tableHeader.AddCell(new Phrase("\n " + "Precio" + "\n ", new Font(Font.FontFamily.TIMES_ROMAN, 16)));
+            tableHeader.AddCell(new Phrase("Nombre", new Font(Font.FontFamily.TIMES_ROMAN, 16)));
+            tableHeader.AddCell(new Phrase("Precio", new Font(Font.FontFamily.TIMES_ROMAN, 16)));
 
             tableHeader.DefaultCell.Padding = 3;
             tableHeader.WidthPercentage = 100;
@@ -134,6 +135,16 @@ namespace Controladores
 
             document.Close();
             fs.Close();
+
+            Gmail gmail = new Gmail();
+            GmailModel gmailModel = new GmailModel();
+
+            gmailModel.from = "julianlastra.kz@gmail.com";
+            gmailModel.to = "julianlastra.kz@gmail.com";
+            gmailModel.subject = "Factura de su compra";
+            gmailModel.body = "Estimado usuario,\r\nSe adjunta la factura de su compra. \r\nMuchas gracias.";
+
+            gmail.sendEmail(gmailModel, @"C:\XML\" + FileName);
         }
     }
 }
