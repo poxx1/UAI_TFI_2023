@@ -6,30 +6,38 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Vista
 {
     public partial class MenuItems : System.Web.UI.Page
     {
         CursosService cs = new CursosService();
-        List<string> items = new List<string>();
-        
+        public static List<string> items;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //FALTA agregar lista a la session para que se guarde.
-            Session["carrito"] = items;
-
-            //Foreach 
-            List<string> listCursos = new List<string>();
-
-            foreach (CursosModel curso in listarCursos())
+            if (!IsPostBack)
             {
-                listCursos.Add(curso.Name + " | Precio: " + curso.Price.ToString());
-            }
+                ListBox1.SelectedIndex = 0;
+                //FALTA agregar lista a la session para que se guarde.
+                if (Session["carrito"] == null)
+                {
+                    items = new List<string>();
+                    Session["carrito"] = items;
+                }
 
-            //Listar cursos
-            ListBox1.DataSource = listCursos;
-            ListBox1.DataBind();
+                //Foreach 
+                List<string> listCursos = new List<string>();
+
+                foreach (CursosModel curso in listarCursos())
+                {
+                    listCursos.Add(curso.Name);
+                }
+
+                //Listar cursos
+                ListBox1.DataSource = listCursos;
+                ListBox1.DataBind();
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -40,14 +48,20 @@ namespace Vista
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             CursosModel cursoActual = new CursosModel();
+            string curso = ListBox1.SelectedValue.ToString();
+            //string[] curso = cursoFull[0].ToString().Split(' ');
 
-            cursoActual = listarCursos().Where(x => x.Name == ListBox1.SelectedValue.ToString()).ToList().FirstOrDefault();
+            cursoActual = listarCursos().Where(x => x.Name.Contains(curso.ToString())).ToList().First();
 
             if (cursoActual != null)
             {
-                Label3.Text = cursoActual.Price.ToString();
+                Label4.Text = cursoActual.Name;
+                Label3.Text = "ARS$" + cursoActual.Price.ToString();
                 Label2.Text = cursoActual.Description;
             }
+
+            if(items!=null)
+                items.Add(ListBox1.SelectedValue.ToString());
         }
         private List<CursosModel> listarCursos() {
             return cs.listCursos();
@@ -55,8 +69,8 @@ namespace Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            items.Add(ListBox1.SelectedValue.ToString());
-            Session["carrito"] = items;
+            //items.Add(ListBox1.SelectedValue.ToString());
+            //Session["carrito"] = items;
         }
     }
 }

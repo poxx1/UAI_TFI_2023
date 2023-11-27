@@ -15,8 +15,11 @@ namespace Controladores
 {
     public class pdf
     {
-        public void create(List<string> lista)
+        public void create(List<CursosModel> lista)
         {
+            float total = 0;
+            int count = lista.Count();
+
             #region Detalles pdf
             string fecha = DateTime.Now.ToString("dd-MM-yy_hhmmss");
             string FileName = fecha + "_Factura.pdf";
@@ -90,6 +93,7 @@ namespace Controladores
             #endregion
 
             #region Items
+            // FALTA que los items de la tabla sean reales;
             PdfPTable table2 = new PdfPTable(2); //lista.Count() El numero determina las columnas
 
             table2.DefaultCell.Padding = 3;
@@ -98,10 +102,11 @@ namespace Controladores
             table2.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
 
             //Hay que modificar esto para agregar los cursos con nombre, detalle y precio
-            foreach (string field in lista)
+            foreach (CursosModel field in lista)
             {
-                table2.AddCell(new Phrase("\n " +field+ "\n ", new Font(Font.FontFamily.TIMES_ROMAN, 10)));
-                table2.AddCell(new Phrase("\n " + "8500" + "\n ", new Font(Font.FontFamily.TIMES_ROMAN, 10)));
+                table2.AddCell(new Phrase("\n " + field.Name + "\n ", new Font(Font.FontFamily.TIMES_ROMAN, 10)));
+                table2.AddCell(new Phrase("\n ARS$ " + field.Price + "\n ", new Font(Font.FontFamily.TIMES_ROMAN, 10)));
+                total += field.Price;
             }
 
             #endregion
@@ -114,9 +119,9 @@ namespace Controladores
             footer.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(210, 210, 210);
 
             footer.AddCell(new Phrase("Cantidad total ", new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD)));
-            footer.AddCell(new Phrase("3 Cursos ", new Font(Font.FontFamily.TIMES_ROMAN, 14)));
+            footer.AddCell(new Phrase(count + " cursos ", new Font(Font.FontFamily.TIMES_ROMAN, 14)));
             footer.AddCell(new Phrase("Precio total ", new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD)));
-            PdfPCell cellFooter = new PdfPCell(new Phrase("ARS$ 24320.00 ", new Font(Font.FontFamily.TIMES_ROMAN, 14)));
+            PdfPCell cellFooter = new PdfPCell(new Phrase("ARS$" + total + ".00 ", new Font(Font.FontFamily.TIMES_ROMAN, 14)));
             cellFooter.HorizontalAlignment = Element.ALIGN_RIGHT;
             footer.AddCell(cellFooter);
             #endregion
@@ -142,7 +147,7 @@ namespace Controladores
             gmailModel.from = "julianlastra.kz@gmail.com";
             gmailModel.to = "julianlastra.kz@gmail.com";
             gmailModel.subject = "Factura de su compra";
-            gmailModel.body = "Estimado usuario,\r\nSe adjunta la factura de su compra. \r\nMuchas gracias.";
+            gmailModel.body = "Estimado usuario,\r\n\r\nSe adjunta la factura de su compra. Cualquier consulta que tenga por favor contacte al soporte especializado.\r\n\r\nMuchas gracias por su compra y por confiar en nosotros.";
 
             gmail.sendEmail(gmailModel, @"C:\XML\" + FileName);
         }
