@@ -151,7 +151,6 @@ namespace AccesoDatos
                 c.Permiso = (PermissionsEnum)Enum.Parse(typeof(PermissionsEnum), reader.GetString(reader.GetOrdinal("Permission")));
                 c.Description = reader.GetValue(reader.GetOrdinal("Description")).ToString();
                 lista.Add(c);
-
             }
             reader.Close();
             cnn.Close();

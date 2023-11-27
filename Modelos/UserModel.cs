@@ -30,6 +30,7 @@ namespace Model
                 return _Permissions;
             }
         }
+        public int Language { get; set; }
         //public Language Language { get; set; }
         public string dvh { get; set; }
     }

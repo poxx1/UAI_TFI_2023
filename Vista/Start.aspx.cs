@@ -16,6 +16,7 @@ namespace Vista
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["logged_in"] = false;
+            Session["language"] = 1;
             //GlobalMessage.MessageBox(this, $"{Session.SessionID}");
             //Label1.Text = Session.SessionID;
         }
@@ -27,6 +28,7 @@ namespace Vista
             if (logIn(user))
             {
                 Session["logged_in"] = true;
+                if(user.Language == 2) { Session["language"] = 2; }
                 HttpContext.Current.Response.Redirect("Default.aspx");
                 GlobalMessage.MessageBox(this, $"Login de {user.Nickname} realizado con exito!");
             }

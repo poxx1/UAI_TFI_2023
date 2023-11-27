@@ -1,21 +1,16 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Vista.SiteMaster" %>
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head runat="server">
       <link rel="stylesheet" type="text/css" href="/Style/Master.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - SayIt</title>
-
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server">
@@ -53,11 +48,8 @@
                         <asp:DropDownList class="customDrop" id="PermissionList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="PermissionList_SelectedIndexChanged"></asp:DropDownList>
                         <asp:DropDownList class="customDrop" id="SolicitudesList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="SolicitudesListIndexChanged"></asp:DropDownList>
                         <asp:DropDownList class="customDrop" id="ComprasList" AutoPostBack="true"  runat="server" OnSelectedIndexChanged="ComprasListIndexChanged"></asp:DropDownList>
-                        <li id="interprete" class="nav-item"><a class="nav-link logOut" runat="server" href="~/Interprete">Interprete</a></li>
                         <li class="nav-item"><a class="nav-link logOut" runat="server" href="~/LogOut">Logout</a></li>
-                        <li id="username" class="nav-item"><a class="nav-link logOut" runat="server">
-                            <asp:Label class="customLabel" ID="Label1" runat="server" Text="username"></asp:Label>
-                            </a></li>
+                        <%-- <%<--li id="interprete" class="nav-item"><a class="nav-link logOut" runat="server" href="~/Interprete">Interprete</a></li>--%> --%>
                     </ul>
                 </div>
             </div>
@@ -67,7 +59,8 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - TFI 2023 - Lastra Julian</p>
+                <%-- <p>&copy; <%: DateTime.Now.Year %> - TFI 2023 - Lastra Julian<a class="nav-link logOut" runat="server"> --%>
+                <asp:Label class="customLabel" ID="Label1" runat="server" Text="username"></asp:Label>
             </footer>
         </div>
     </form>

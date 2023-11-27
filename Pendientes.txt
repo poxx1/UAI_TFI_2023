@@ -4,22 +4,22 @@
 	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
 	revalidar todo y fue.
 
-8. Agregar el multi-idioma > Se puede hacer nuevo? No se necesita agregar un idioma o editarlo en vivo.
+2. Hacer el multi-idioma
 
-10. Agregar los patrones como sea.
+3. Dibujar los patrones
 
-13. Menu de Backup/Restore o recalcular dijitos no esta hecho.
+4. Menu de Backup/Restore o recalcular digitos
+
+5. Familias y Patentes no esta terminado, casi ni esta hecho
 
 //Pulir detalles
-3. Hay que revisar Familias/Pantentes de que esten funcionando ok.
+1. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
 
-4. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
+2. Agregar la validacion de contrasenia para 6 caracteres.
 
-7. Agregar la validacion de contrasenia para 6 caracteres.
+3. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
-11. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
-
-12. Hay que mostrar los mensjaes de error y capturar los errores.
+4. Hay que mostrar los mensjaes de error y capturar los errores.
 
 // DOCUMENTACION y CARPETA
 A. Hacer el diagrama de Klein.

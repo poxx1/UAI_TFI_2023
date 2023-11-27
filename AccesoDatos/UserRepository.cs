@@ -23,7 +23,7 @@ namespace AccesoDatos
             //languageRepository = new LanguageRepository();
         }
         public void save(UserModel user)
-        {
+        { //FALTA agregar el idioma aca
             try
             {
                 SqlConnection connection = ConnectionSingleton.getConnection();
@@ -113,7 +113,6 @@ namespace AccesoDatos
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                //int idLanguaje = 0;
                 while (reader.Read())
                 {
                     user = new UserModel
@@ -129,7 +128,8 @@ namespace AccesoDatos
                         Dni = reader.GetValue(reader.GetOrdinal("Dni")).ToString(),
                         Blocked = reader.GetBoolean(reader.GetOrdinal("Blocked")),
                         Tries = int.Parse(reader.GetValue(reader.GetOrdinal("Tries")).ToString()),
-                        dvh = reader.GetValue(reader.GetOrdinal("dvh")).ToString()
+                        dvh = reader.GetValue(reader.GetOrdinal("dvh")).ToString(),
+                        Language = int.Parse(reader.GetValue(reader.GetOrdinal("Language_Id")).ToString())
                     };
                     //idLanguaje = int.Parse(reader.GetValue(reader.GetOrdinal("key_idioma")).ToString());
                 }
@@ -181,7 +181,8 @@ namespace AccesoDatos
                         Dni = reader.GetValue(reader.GetOrdinal("dni")).ToString(),
                         Blocked = reader.GetBoolean(reader.GetOrdinal("bloqueado")),
                         Tries = int.Parse(reader.GetValue(reader.GetOrdinal("intentos")).ToString()),
-                        dvh = reader.GetValue(reader.GetOrdinal("dvh")).ToString()
+                        dvh = reader.GetValue(reader.GetOrdinal("dvh")).ToString(),
+                        Language = int.Parse(reader.GetValue(reader.GetOrdinal("Language_Id")).ToString())
                     };
                     idLanguaje = int.Parse(reader.GetValue(reader.GetOrdinal("key_idioma")).ToString());
                 }
@@ -317,7 +318,8 @@ namespace AccesoDatos
                     Dni = reader.GetValue(reader.GetOrdinal("Dni")).ToString(),
                     Blocked = reader.GetBoolean(reader.GetOrdinal("Blocked")),
                     Tries = int.Parse(reader.GetValue(reader.GetOrdinal("Tries")).ToString()),
-                    dvh = reader.GetValue(reader.GetOrdinal("dvh")).ToString()//,
+                    dvh = reader.GetValue(reader.GetOrdinal("dvh")).ToString(),
+                    Language = int.Parse(reader.GetValue(reader.GetOrdinal("Language_Id")).ToString())
                     //Language = new Models.language.Language() { ID = int.Parse(reader.GetValue(reader.GetOrdinal("key_idioma")).ToString()) }
                 };
                 lista.Add(user);
@@ -398,6 +400,7 @@ namespace AccesoDatos
         }
         public bool update(UserModel user)
         {
+            //FALTA implementar update con idioma
             SqlConnection connection = ConnectionSingleton.getConnection();
 
             SqlTransaction transaction;

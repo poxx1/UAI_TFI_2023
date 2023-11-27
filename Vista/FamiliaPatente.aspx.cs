@@ -12,10 +12,16 @@ namespace Vista
     {
         PermissionsService permissionsService;
         Family seleccion;
+        public static bool inEng = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if ((bool)Session["logged_in"] != true) HttpContext.Current.Response.Redirect("Start.aspx");
             if ((bool)Session["permission"] != true) HttpContext.Current.Response.Redirect("Default.aspx");
+            
+            //Idioma
+            if ((int)Session["language"] == 1) inEng = false; //1 = ESP
+            if ((int)Session["language"] == 2) inEng = true; //2 = ENG
 
             permissionsService = new PermissionsService();
             
@@ -49,11 +55,13 @@ namespace Vista
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Patentes
+
         }
 
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Familias
+
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -101,14 +109,16 @@ namespace Vista
                     MostrarEnTreeView(node, item);
                 }
         }
-
         protected void Button4_Click(object sender, EventArgs e)
         {
-            try { 
+            try 
+            { 
             TreeNode nuevaPatente = new TreeNode();
             nuevaPatente.Text = DropDownList2.SelectedItem.Text.ToString();
-
-            TreeView1.Nodes.Add(nuevaPatente);
+            
+                //Error de nulidad
+                TreeView1.Nodes.Add(nuevaPatente);
+            
             TreeView1.SelectedNode.ChildNodes.Add(nuevaPatente);
             TreeView1.ExpandAll();
             TreeView1.DataBind();

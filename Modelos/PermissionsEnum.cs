@@ -6,6 +6,7 @@
         Patentes,
         Usuarios,
         Bitacora,
+        Compras,
         AdminCompras,
         AdminSolicitudes,
         Backup,

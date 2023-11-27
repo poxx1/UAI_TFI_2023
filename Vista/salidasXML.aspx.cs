@@ -18,7 +18,9 @@ namespace Vista
         salidaXML salida = new salidaXML();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Totales
+            GridView1.DataSource = salida.solicitudesTotales();
+            GridView1.DataBind();
         }
         protected void Button1_Click(object sender, EventArgs e)
         {

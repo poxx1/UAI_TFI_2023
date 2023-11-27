@@ -52,6 +52,7 @@ namespace Vista
                 List<string> solicitudeslist = new List<string>()
                     {
                         "Menu de solicitudes",
+                        "Interprete",
                         "Listar solicitudes",
                         "Aprobar solicitudes",
                         "Realizar solicitud"
@@ -96,8 +97,7 @@ namespace Vista
                 if (!strings.Contains("Bitacora"))
                     AdminList.Enabled = false;
 
-                //Label1.Text = "Usuario: " + user.Nickname + " | Rol: " + tipoUsuario;
-                Label1.Text = user.Nickname + " | " + tipoUsuario;
+                Label1.Text = "2023 - Lastra Julian - Proyecto - Trabajo Final de Ing. | Nombre de usuario: " + user.Nickname + " | Tipo de usuario: " + tipoUsuario;
             }
         }
         protected void UserList_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,6 +146,7 @@ namespace Vista
             {
                 switch (SolicitudesList.SelectedItem.Text)
                 {
+                    case "Interprete": HttpContext.Current.Response.Redirect("Interprete.aspx");break;
                     case "Listar solicitudes": HttpContext.Current.Response.Redirect("ListSolicitud.aspx"); break;
                     case "Aprobar solicitudes": HttpContext.Current.Response.Redirect("ListSolicitud.aspx"); break;
                     case "Realizar solicitud": HttpContext.Current.Response.Redirect("AddSolicitud.aspx"); break;
@@ -154,7 +155,7 @@ namespace Vista
             }
         }
         protected void Interpretar(object sender, EventArgs e) {
-            HttpContext.Current.Response.Redirect("Interprete.aspx");
+            
         }
         protected void ComprasListIndexChanged(object sender, EventArgs e)
         {
