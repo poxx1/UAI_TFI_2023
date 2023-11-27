@@ -70,7 +70,7 @@ namespace AccesoDatos
                 cmd.CommandText = query;
                 cmd.Connection = connection;
 
-                cmd.Parameters.Add(new SqlParameter("Nombre", curso.Name));
+                cmd.Parameters.Add(new SqlParameter("Name", curso.Name));
                 cmd.Parameters.Add(new SqlParameter("Descripcion", curso.Description));
                 cmd.Parameters.Add(new SqlParameter("Precio", curso.Price));
 
@@ -113,6 +113,7 @@ namespace AccesoDatos
         public void updateCurso(CursosModel curso)
         {
             throw new NotImplementedException();
+            // FALTA update de cursos
         }
     }
 }

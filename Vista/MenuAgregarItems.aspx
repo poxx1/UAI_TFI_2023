@@ -2,23 +2,22 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <p>
-        Ingrese los detalles del curso que desea agregar al sistema.</p>
-    <p>
-        Nombre</p>
-    <p>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    Ingrese los detalles del curso que desea agregar al sistema.</p>
+<p>
+    Nombre
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     </p>
-    <p>
-        Detalles</p>
-    <p>
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+<p>
+    Detalles
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
     </p>
-    <p>
-        Precio en ARS$</p>
-    <p>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+<p>
+    Precio&nbsp;&nbsp;
+    <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
     </p>
+<p>
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar curso" />
+</p>
     <p>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar curso" />
-    </p>
+        &nbsp;Nota. Los precios de los cursos son en $ARS.</p>
 </asp:Content>

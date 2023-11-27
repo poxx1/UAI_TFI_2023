@@ -1,10 +1,10 @@
 ### Errores pendientes de modificacion ###
-
+//CODIGO
 1. Cuando modificas un dato en la DB, te avisa que esta corrupto, pero si volves a intentar loguearte, pisa ese error de una
 	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
 	revalidar todo y fue.
 
-2. Falta realizar toda la parte de compras
+2. Falta realizar toda la parte de compras //Empezada
 
 3. Hay que revisar Familias/Pantentes de que esten funcionando ok.
 
@@ -19,23 +19,26 @@
 8. Agregar el multi-idioma
 
 9. Hacer los 3 webservices
-A. Ver las solicitudes pendientes
-B. Ver todas las solicitudes
-C. Obtener la cantidad de solicitudes aprobadas o desaprobadas
+A. Cantidad de solicitudes pendientes
+B. Cantidad de solicitudes ya aprobadas
+C. Cantidad de solicitudes totales
 
 10. Agregar los patrones como sea.
 
 11. Hacer 3 salidas XML, las mismas que los 3 webservices.
-A.
-B.
-C.
+A. Cantidad de solicitudes pendientes
+B. Cantidad de solicitudes ya aprobadas
+C. Cantidad de solicitudes totales
 
 12. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
-13. Hacer el diagrama de Klein.
+13. Hay que mostrar los mensjaes de error y capturar los errores.
 
-14. Manual de instalacion.
+//DOCUMENTACION y CARPETA
+A. Hacer el diagrama de Klein.
 
-15. Manual de usuario/uso.
+B. Manual de instalacion.
 
-16. Hacer toda la puta carpeta
+C. Manual de usuario/uso.
+
+D. Hacer toda la puta carpeta
