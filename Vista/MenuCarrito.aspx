@@ -13,7 +13,7 @@
             <br />
             <asp:Button ID="Button1" runat="server" Text="Quitar item seleccionado" Width="197px" OnClick="Button1_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" Text="Realizar compra" Width="140px" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" Text="Realizar compra" Width="140px" OnClick="Button2_Click" />
             <br />
         </div>
     </main>

@@ -18,6 +18,7 @@ namespace Controladores
                 email.To.Add(gmailModel.to);
                 email.Subject = gmailModel.subject;
                 email.Body = gmailModel.body;
+                //email.Attachments.Add(item);
 
                 SmtpServer.Credentials = new NetworkCredential(gmailModel.from, "fytkiskqpifjnpzi");
                 SmtpServer.Send(email);
