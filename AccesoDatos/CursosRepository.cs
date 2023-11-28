@@ -112,8 +112,28 @@ namespace AccesoDatos
 
         public void updateCurso(CursosModel curso)
         {
-            throw new NotImplementedException();
-            // FALTA update de cursos
+            try
+            {
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                string query = $@"UPDATE Courses SET Name=@Name,Description=@Description,Precio=@Precio where ID = @ID";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                cmd.Parameters.Add(new SqlParameter("ID", curso.ID));
+                cmd.Parameters.Add(new SqlParameter("Name", curso.Name));
+                cmd.Parameters.Add(new SqlParameter("Description", curso.Description));
+                cmd.Parameters.Add(new SqlParameter("Precio", curso.Price));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

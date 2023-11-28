@@ -4,12 +4,10 @@
 	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
 	revalidar todo y fue.
 
-3. Menu de Backup/Restore o recalcular digitos > Corrupcion.aspx 
+2. Menu de Backup/Restore o recalcular digitos > Corrupcion.aspx 
 
-4. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
-
-5. Solicitudes CRUD 
-
+3. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
+ 
 //Pulir detalles
 1. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
 
@@ -18,6 +16,8 @@
 3. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
 4. Hay que mostrar los mensajes de error y capturar los errores.
+
+5. Cuando updateas el usuario no te calcula el digito verificador.
 
 // DOCUMENTACION y CARPETA
 A. Hacer el diagrama de Klein.

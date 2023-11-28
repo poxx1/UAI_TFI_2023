@@ -11,6 +11,7 @@ input,
 select,
 textarea {
     max-width: 280px;
+    margin-bottom: 0px;
 }
 
 /* Responsive: Portrait tablets and up */

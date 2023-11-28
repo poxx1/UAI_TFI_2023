@@ -293,7 +293,7 @@ namespace Vista
                     case "Cursos disponibles": HttpContext.Current.Response.Redirect("MenuItems.aspx"); break;
                     case "Carrito de compras": HttpContext.Current.Response.Redirect("MenuCarrito.aspx"); break;
                     case "Agregar cursos": HttpContext.Current.Response.Redirect("MenuAgregarItems.aspx"); break;
-                    case "Editar cursos": HttpContext.Current.Response.Redirect("MenuAgregarItems.aspx"); break;
+                    case "Editar cursos": HttpContext.Current.Response.Redirect("EditarCursos.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }
@@ -304,7 +304,7 @@ namespace Vista
                     case "Courses": HttpContext.Current.Response.Redirect("MenuItems.aspx"); break;
                     case "Shopping bag": HttpContext.Current.Response.Redirect("MenuCarrito.aspx"); break;
                     case "Add course": HttpContext.Current.Response.Redirect("MenuAgregarItems.aspx"); break;
-                    case "Edit course": HttpContext.Current.Response.Redirect("MenuAgregarItems.aspx"); break;
+                    case "Edit course": HttpContext.Current.Response.Redirect("EditarCursos.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }

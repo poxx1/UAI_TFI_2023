@@ -10,8 +10,10 @@
             <h4>Permisos de los usuarios:</h4>
             <br />
             <a>Seleccione </a>los elementos de las listas correspondientes
+            <br />
             <a>Patentes</a>
             <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged"></asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a>Familias</a>
             <asp:DropDownList ID="DropDownList3" runat="server" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged"></asp:DropDownList>
             <br />
@@ -29,10 +31,6 @@
             <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Guardar familia" />
             <br />
             <br />
-            Nueva familia:<br />
-            Nombre de la familia:
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            &nbsp;<asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Crear familia" />
         </div>
     </main>
 </asp:Content>

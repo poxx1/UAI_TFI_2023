@@ -143,12 +143,5 @@ namespace Vista
             }
             catch (Exception) { }
         }
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            //Crear familia
-            Family p = new Family();
-            p.Nombre = TextBox2.Text;
-            //p.Childs.Add();
-        }
     }
 }

@@ -113,6 +113,7 @@
     <Content Include="Customs\ValidateEmail.ascx" />
     <Content Include="Customs\ValidatePassword.ascx" />
     <Content Include="DeleteUser.aspx" />
+    <Content Include="EditarCursos.aspx" />
     <Content Include="EditUser.aspx" />
     <Content Include="FamiliaPatente.aspx" />
     <Content Include="Interprete.aspx" />
@@ -270,6 +271,13 @@
     </Compile>
     <Compile Include="DeleteUser.aspx.designer.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarCursos.aspx.cs">
+      <DependentUpon>EditarCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarCursos.aspx.designer.cs">
+      <DependentUpon>EditarCursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUser.aspx.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>

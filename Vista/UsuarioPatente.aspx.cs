@@ -1,7 +1,9 @@
 ﻿using Controladores;
 using Model;
+using Modelos;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,31 +18,41 @@ namespace Vista
         {
             if ((bool)Session["logged_in"] != true) HttpContext.Current.Response.Redirect("Start.aspx");
             if ((bool)Session["permission"] != true) HttpContext.Current.Response.Redirect("Default.aspx");
-        }
+            if (!IsPostBack)
+            {
+                //Listar usuarios
+                List<UserModel> listaUsuarios = us.GetAll();
+                List<string> listaNicks = new List<string>();
+                foreach (UserModel usuario in listaUsuarios)
+                {
+                    listaNicks.Add(usuario.Nickname);
+                }
+                DropDownList1.DataSource = listaNicks;
+                DropDownList1.DataBind();
 
+                List<Family> permisos = new List<Family>();
+                List<string> listaPermisos = new List<string>();
+                foreach (Family component in permisos)
+                {
+                    listaPermisos.Add(component.Nombre);
+                }
+                DropDownList2.DataSource = listaPermisos;
+                DropDownList2.DataBind();
+            }
+        }
         protected void Button2_Click(object sender, EventArgs e)
         {
+            string usuario = DropDownList1.SelectedValue.ToString();
+            string permiso = DropDownList2.SelectedValue.ToString();
+
+            //FALTA hacer el update de usuario_permiso.
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button3_Click(object sender, EventArgs e)
         {
-            //Listar usuarios
-            List<UserModel> listaUsuarios = us.GetAll();
-            List<string> listaNicks = new List<string>();
-            foreach (UserModel usuario in listaUsuarios) {
-                listaNicks.Add(usuario.Nickname);
-            }
-            DropDownList1.DataSource = listaNicks;
-            DropDownList1.DataBind();
+            //FALTA listar permisos del usuario
 
         }
-
-        protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Cargar el treeview de permisos
