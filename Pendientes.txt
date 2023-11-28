@@ -1,16 +1,14 @@
-####################################### Errores pendientes de modificacion ##################################################
+###################################### Errores pendientes de modificacion ##################################################
 // CODIGO
 1. Cuando modificas un dato en la DB, te avisa que esta corrupto, pero si volves a intentar loguearte, pisa ese error de una
 	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
 	revalidar todo y fue.
 
-2. Hacer el multi-idioma
+3. Menu de Backup/Restore o recalcular digitos > Corrupcion.aspx 
 
-3. Dibujar los patrones
+4. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
 
-4. Menu de Backup/Restore o recalcular digitos
-
-5. Familias y Patentes no esta terminado, casi ni esta hecho
+5. Solicitudes CRUD 
 
 //Pulir detalles
 1. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
@@ -19,7 +17,7 @@
 
 3. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
-4. Hay que mostrar los mensjaes de error y capturar los errores.
+4. Hay que mostrar los mensajes de error y capturar los errores.
 
 // DOCUMENTACION y CARPETA
 A. Hacer el diagrama de Klein.

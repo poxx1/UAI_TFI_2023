@@ -8,6 +8,8 @@
             <br />
             <asp:Button ID="Button2" runat="server" Text="Realizar backup" OnClick="Button2_Click" />
             <br />
+            <br />
+            <br />
             Restore<br />
             <br />
             Seleccione el archivo de backup de la base de datos que desea restaurar:<br />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI.WebControls;
+using Controladores;
 using Model;
 using Servicios;
 using LogService = Controladores.Login;
@@ -28,7 +29,11 @@ namespace Vista
             if (logIn(user))
             {
                 Session["logged_in"] = true;
-                if(user.Language == 2) { Session["language"] = 2; }
+
+                UserService us = new UserService();
+                user = us.Get(user.Nickname);
+
+                if(user.Language == 2) { Session["language"] = 2; HttpContext.Current.Response.Redirect("Default.aspx"); }
                 HttpContext.Current.Response.Redirect("Default.aspx");
                 GlobalMessage.MessageBox(this, $"Login de {user.Nickname} realizado con exito!");
             }
