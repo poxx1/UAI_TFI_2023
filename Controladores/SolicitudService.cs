@@ -1,5 +1,6 @@
 ﻿using AccesoDatos;
 using Modelos;
+using System;
 using System.Collections.Generic;
 
 namespace Controladores
@@ -21,6 +22,11 @@ namespace Controladores
         public bool deleteSolicitud()
         {
             return false;
+        }
+
+        public bool Approve(InterpretacionModel value)
+        {
+            return repository.Approve(value);
         }
     }
 }

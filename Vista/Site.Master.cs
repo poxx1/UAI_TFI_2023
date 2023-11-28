@@ -101,7 +101,7 @@ namespace Vista
             }
 
             #region Ingles
-            else
+            if(!Page.IsPostBack && (int)Session["language"] == 2)
             {
                 List<string> userlist = new List<string>()
                 {   "Users",

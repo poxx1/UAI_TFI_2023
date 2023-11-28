@@ -115,5 +115,31 @@ namespace AccesoDatos
                 throw ex;
             }
         }
+
+        public bool Approve(InterpretacionModel interpretacion)
+        {
+            try
+            {
+                //FALTA hacer este update para que apruebe la solicitud
+                SqlConnection connection = ConnectionSingleton.getConnection();
+                connection.Open();
+                string query = $@"UPDATE Interpretaciones SET Aprobada = 1 where ID = @ID";
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                cmd.Parameters.Add(new SqlParameter("ID", interpretacion.ID));
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

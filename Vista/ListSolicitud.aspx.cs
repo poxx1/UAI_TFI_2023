@@ -11,15 +11,32 @@ namespace Vista
 {
     public partial class ListSolicitud : System.Web.UI.Page
     {
+        SolicitudService solicitud = new SolicitudService();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            SolicitudService solicitud = new SolicitudService();
+            if (!IsPostBack)
+            {
+                List<InterpretacionModel> list = new List<InterpretacionModel>();
+                list = solicitud.listSolicitud();
+                List<string> lista = new List<string>();
 
-            List<InterpretacionModel> list = new List<InterpretacionModel>(); 
-            list = solicitud.listSolicitud();
+                foreach (var item in list)
+                {
+                    lista.Add(item.Name.ToString());
+                }
 
-            DropDownList1.DataSource = list;
-            DropDownList1.DataBind();
+                DropDownList1.DataSource = lista;
+                DropDownList1.DataBind();
+            }
+        }
+
+        protected void Approve(object sender, EventArgs e)
+        {
+            string sol = DropDownList1.SelectedValue.ToString();
+            InterpretacionModel sM = new InterpretacionModel();
+            sM = solicitud.listSolicitud().Where(x => x.Name == sol).ToList().FirstOrDefault();
+            solicitud.Approve(sM);
         }
     }
 }
