@@ -41,9 +41,8 @@ namespace Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            bool isValidData = true;
-
             #region Regex
+            bool isValidData = true;
             if (!Regex.IsMatch(TextBox1.Text, "^([0-9]+$)")) //Numbers only DNI
             {
                 isValidData = false;

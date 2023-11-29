@@ -18,11 +18,15 @@ namespace Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            PermissionsService ps = new PermissionsService();
-            Family f = new Family();
-            f.Nombre = TextBox1.Text;
-            ps.SaveComponent(f,true);
-            //Ni guarda la familia, ni te avisa si la guarda boludo
+            try
+            {
+                PermissionsService ps = new PermissionsService();
+                Family f = new Family();
+                f.Nombre = TextBox1.Text;
+                ps.SaveComponent(f, true);
+                GlobalMessage.MessageBox(this, "La familia se guardo correctamente");
+            }
+            catch { GlobalMessage.MessageBox(this, "Error guardando la familia"); }
         }
     }
 }
