@@ -2,6 +2,8 @@
 using Model;
 using Servicios;
 using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
 
 namespace Controladores
 {
@@ -13,9 +15,8 @@ namespace Controladores
 
         public List<string> corrputionList = new List<string>();
         public bool isCorruputed = false;
-        public bool LogIn(UserModel user)
+        public bool LogIn(UserModel user,Page page )
         {
-            //Security.Encript(user.Nickname); wtf prque lo encriptaba?
             user.Password = Security.HashSha256(user.Password);
 
             UserModel dbUser = userService.Get(user.Nickname);
@@ -25,6 +26,7 @@ namespace Controladores
                 {
                     userService.ResetTries(dbUser);
                     session.Login(dbUser);
+                    page.Session["recalcular"] = false;
                     return true;
                 }
                 else { 
@@ -34,6 +36,8 @@ namespace Controladores
                         //Show message
                         isCorruputed =true;
                         corrputionList = integrityService.check();
+                        page.Session["recalcular"] = true;
+                        HttpContext.Current.Response.Redirect("Corrupcion.aspx");
                         //GlobalMessage.MessageBox(this, $"Login de {user.Nickname} realizado con exito!");
                     }
 
@@ -43,6 +47,7 @@ namespace Controladores
                         userService.BlockUser(dbUser);    
                 }
             }
+            page.Session["recalcular"] = false;
             return false;
         }
         public bool LogOut() {

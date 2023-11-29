@@ -3,8 +3,9 @@
 1. Cuando modificas un dato en la DB, te avisa que esta corrupto, pero si volves a intentar loguearte, pisa ese error de una
 	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
 	revalidar todo y fue.
+	Cuando recalculas el digito verificador de algo previamente roto, se rompe todo mal. Fijate que onda.
 
-2. Menu de Backup/Restore o recalcular digitos > Corrupcion.aspx 
+2. Menu de Backup/Restore o recalcular digitos > Corrupcion.aspx. Hay que agregar las otras tablas y ver porque rompe todo.
 
 3. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
  
@@ -19,11 +20,7 @@
 
 5. Cuando updateas el usuario no te calcula el digito verificador.
 
-// DOCUMENTACION y CARPETA
-A. Hacer el diagrama de Klein.
+// CARPETA
+1. Faltan implementar los casos de uso de compra
 
-B. Manual de instalacion.
-
-C. Manual de usuario/uso.
-
-D. Hacer toda la puta carpeta
+2. Falta modificar los cartes 

@@ -53,8 +53,8 @@ namespace Vista
 
         private bool logIn(UserModel user)
         {
-            if (login.LogIn(user))
-            {           
+            if (login.LogIn(user,this))
+            {
                 bitacoraService.LogData("Login", $"El usuario {user.Name} se logueo.", "Baja");
 
                 return true;

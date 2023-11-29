@@ -77,27 +77,30 @@ namespace Vista
                 UserModel user = new UserModel();
                 PermissionsService ps = new PermissionsService();
 
-                user = SessionModel.GetInstance.user;
-                List<Component> permisos = user.Permissions;
-                List<string> strings = new List<string>();
-
-                string tipoUsuario = "";
-
-                foreach (Component permiso in permisos)
+                if ((bool)Session["recalcular"] != true)
                 {
-                    if (permiso.Nombre == "Admin" || permiso.Nombre == "Cliente" || permiso.Nombre == "Webmaster")
-                        tipoUsuario = permiso.Nombre;
-                    permiso.Childs.ForEach(x => strings.Add(x.Nombre));
+                    user = SessionModel.GetInstance.user;
+                    List<Component> permisos = user.Permissions;
+                    List<string> strings = new List<string>();
+
+                    string tipoUsuario = "";
+
+                    foreach (Component permiso in permisos)
+                    {
+                        if (permiso.Nombre == "Admin" || permiso.Nombre == "Cliente" || permiso.Nombre == "Webmaster")
+                            tipoUsuario = permiso.Nombre;
+                        permiso.Childs.ForEach(x => strings.Add(x.Nombre));
+                    }
+
+                    if (!strings.Contains("Usuarios"))
+                        UserList.Enabled = false;
+                    if (!strings.Contains("Patentes"))
+                        PermissionList.Enabled = false;
+                    if (!strings.Contains("Bitacora"))
+                        AdminList.Enabled = false;
+
+                    Label1.Text = "2023 - Lastra Julian - Proyecto - Trabajo Final de Ing. | Nombre de usuario: " + user.Nickname + " | Tipo de usuario: " + tipoUsuario;
                 }
-
-                if (!strings.Contains("Usuarios"))
-                    UserList.Enabled = false;
-                if (!strings.Contains("Patentes"))
-                    PermissionList.Enabled = false;
-                if (!strings.Contains("Bitacora"))
-                    AdminList.Enabled = false;
-
-                Label1.Text = "2023 - Lastra Julian - Proyecto - Trabajo Final de Ing. | Nombre de usuario: " + user.Nickname + " | Tipo de usuario: " + tipoUsuario;
             }
 
             #region Ingles
@@ -162,30 +165,33 @@ namespace Vista
                 ComprasList.DataBind();
                 #endregion
 
-                UserModel user = new UserModel();
-                PermissionsService ps = new PermissionsService();
-
-                user = SessionModel.GetInstance.user;
-                List<Component> permisos = user.Permissions;
-                List<string> strings = new List<string>();
-
-                string tipoUsuario = "";
-
-                foreach (Component permiso in permisos)
+                if ((bool)Session["recalcular"] != true)
                 {
-                    if (permiso.Nombre == "Admin" || permiso.Nombre == "Cliente" || permiso.Nombre == "Webmaster")
-                        tipoUsuario = permiso.Nombre;
-                    permiso.Childs.ForEach(x => strings.Add(x.Nombre));
+                    UserModel user = new UserModel();
+                    PermissionsService ps = new PermissionsService();
+
+                    user = SessionModel.GetInstance.user;
+                    List<Component> permisos = user.Permissions;
+                    List<string> strings = new List<string>();
+
+                    string tipoUsuario = "";
+
+                    foreach (Component permiso in permisos)
+                    {
+                        if (permiso.Nombre == "Admin" || permiso.Nombre == "Cliente" || permiso.Nombre == "Webmaster")
+                            tipoUsuario = permiso.Nombre;
+                        permiso.Childs.ForEach(x => strings.Add(x.Nombre));
+                    }
+
+                    if (!strings.Contains("Usuarios"))
+                        UserList.Enabled = false;
+                    if (!strings.Contains("Patentes"))
+                        PermissionList.Enabled = false;
+                    if (!strings.Contains("Bitacora"))
+                        AdminList.Enabled = false;
+
+                    Label1.Text = "2023 - Lastra Julian - Project - Trabajo Final de Ing. | Username: " + user.Nickname + " | User type: " + tipoUsuario;
                 }
-
-                if (!strings.Contains("Usuarios"))
-                    UserList.Enabled = false;
-                if (!strings.Contains("Patentes"))
-                    PermissionList.Enabled = false;
-                if (!strings.Contains("Bitacora"))
-                    AdminList.Enabled = false;
-
-                Label1.Text = "2023 - Lastra Julian - Project - Trabajo Final de Ing. | Username: " + user.Nickname + " | User type: " + tipoUsuario;
             } 
         }
         protected void UserList_SelectedIndexChanged(object sender, EventArgs e)
