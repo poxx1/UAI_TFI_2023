@@ -21,7 +21,8 @@ namespace Vista
             PermissionsService ps = new PermissionsService();
             Family f = new Family();
             f.Nombre = TextBox1.Text;
-            ps.SaveFamily(f);
+            ps.SaveComponent(f,true);
+            //Ni guarda la familia, ni te avisa si la guarda boludo
         }
     }
 }

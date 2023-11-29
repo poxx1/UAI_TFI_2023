@@ -67,9 +67,34 @@ namespace Vista
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
-            ////Guardar familia
-            
-        }
+            try
+            {
+                ////Guardar familia
+                PermissionsService ps = new PermissionsService();
+                string value = TreeView1.SelectedNode.Value;
+
+                //Traerme a la familia.
+                List<Patent> list = new List<Patent>();
+                //list = ps.GetAllPatentes();
+
+                Family components = ps.GetAllFamilies().Where(x => x.Nombre == value).ToList().FirstOrDefault();
+
+                var listaHijos = TreeView1.SelectedNode.ChildNodes;
+                foreach (TreeNode child in listaHijos)
+                {
+                    //Child.txt
+                    components.AddChild(ps.GetAllPatentes().Where(x => x.Nombre == child.Text).ToList().FirstOrDefault());
+                }
+
+                ps.SaveFamily(components);
+
+                BitacoraService bitacoraService = new BitacoraService();
+                UserModel user = new UserModel();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} modifico una familia.", "Media");
+                GlobalMessage.MessageBox(this, $"Se modifico la familia");
+            }
+            catch(Exception ex) { GlobalMessage.MessageBox(this, $"Error modificando la familia"); }
+            }
         private void MostrarFamilia(bool init)
         {
             if (seleccion == null) return;
@@ -120,41 +145,64 @@ namespace Vista
             
                 //Error de nulidad
                 TreeView1.Nodes.Add(nuevaPatente);
-            
-            TreeView1.SelectedNode.ChildNodes.Add(nuevaPatente);
-            TreeView1.ExpandAll();
-            TreeView1.DataBind();
+                
+                //Agregar permiso
+                TreeView1.SelectedNode.ChildNodes.Add(nuevaPatente);
+                TreeView1.ExpandAll();
+                TreeView1.DataBind();
 
-
-                BitacoraService bitacoraService = new BitacoraService();
-                UserModel user = new UserModel();
-                bitacoraService.LogData("Login", $"El usuario {user.Name} modifico una familia.", "Media");
-                GlobalMessage.MessageBox(this, $"Se modifico la familia");
             }
             catch (Exception) { }
         }
         protected void Button5_Click(object sender, EventArgs e)
         {
             //Quitar permiso
+
+            //ESTA PORONGA NO ANDA, HAY QUE COPIARSE DEL METODO DE ARRIBA BUTTON 4, y hacer lo mismo
             try
             {
                 TreeNode currentPatente = new TreeNode();
                 currentPatente.Text = DropDownList2.SelectedItem.Text.ToString();
                 var list = TreeView1.SelectedNode.ChildNodes.Cast<TreeNode>().ToList();
+                
                 foreach (TreeNode node in list)
                 {
                     if (node.Text == currentPatente.Text)
                         TreeView1.SelectedNode.ChildNodes.Remove(node);
                 }
+
                 TreeView1.ExpandAll();
                 TreeView1.DataBind();
+            }
+            catch (Exception) { }
+
+            try
+            {
+                ////Guardar familia
+                PermissionsService ps = new PermissionsService();
+                string value = TreeView1.SelectedNode.Value;
+
+                //Traerme a la familia.
+                List<Patent> list = new List<Patent>();
+                //list = ps.GetAllPatentes();
+
+                Family components = ps.GetAllFamilies().Where(x => x.Nombre == value).ToList().FirstOrDefault();
+
+                var listaHijos = TreeView1.SelectedNode.ChildNodes;
+                foreach (TreeNode child in listaHijos)
+                {
+                    //Child.txt
+                    components.AddChild(ps.GetAllPatentes().Where(x => x.Nombre == child.Text).ToList().FirstOrDefault());
+                }
+
+                ps.SaveFamily(components);
 
                 BitacoraService bitacoraService = new BitacoraService();
                 UserModel user = new UserModel();
                 bitacoraService.LogData("Login", $"El usuario {user.Name} modifico una familia.", "Media");
                 GlobalMessage.MessageBox(this, $"Se modifico la familia");
             }
-            catch (Exception) { }
+            catch (Exception ex) { GlobalMessage.MessageBox(this, $"Error modificando la familia"); }
         }
     }
 }

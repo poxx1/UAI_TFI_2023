@@ -3,9 +3,7 @@
 1. Menu de Restore/Recalcular hay que agregar las otras tablas y ver porque rompe todo.
 1 Bis. Al 1 hay que agregarle lo de los digitos verificadores de los demas
 
-2. Metodo para crear familia no existe.
-Fix. Lo mismo que implemente para UsuarioPatente, aplicarlo en FamiliaPatente. Eso te carga la nueva patente y te saca la vieja?
-2 Bis. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
+2. Crea una famila nueva, le agrega 1 SOLO PERMISO, despues si hces algo mas se rompe a la mierda
 
 4. Agregar un boton para poder cambiar de idioma la main page.
 

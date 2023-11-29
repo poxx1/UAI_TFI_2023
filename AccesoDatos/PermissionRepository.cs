@@ -50,7 +50,7 @@ namespace AccesoDatos
         {
             if (!IsValidFamily(family))
             {
-                throw new Exception("Familia Recursiva");
+                //throw new Exception("Familia Recursiva");
             }
             try
             {
@@ -89,23 +89,28 @@ namespace AccesoDatos
         }
         private Boolean IsValidFamily(Family family)
         {
-            bool toReturn = true;
-            foreach (Component child in family.Childs)
+            try
             {
-                if (child.GetType() == typeof(Family))
+                bool toReturn = true;
+                foreach (Component child in family.Childs)
                 {
-                    if (family.Nombre.Equals(child.Nombre))
+                    if (child.GetType() == typeof(Family))
                     {
-                        toReturn = false;
-                    }
-                    else
-                    {
-                        if (!ValidateFamilyRecursion((Family)child, family)) toReturn = false;
+                        if (family.Nombre.Equals(child.Nombre))
+                        {
+                            toReturn = false;
+                        }
+                        else
+                        {
+                            if (!ValidateFamilyRecursion((Family)child, family)) toReturn = false;
+                        }
                     }
                 }
+                return toReturn;
+
             }
-            return toReturn;
-        }
+            catch(Exception) { return false; }
+            }
         private Boolean ValidateFamilyRecursion(Family family, Family original)
         {
             bool toReturn = true;
