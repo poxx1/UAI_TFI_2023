@@ -29,9 +29,29 @@ namespace Vista
                     }
                     ListBox1.DataSource = lista;
                     ListBox1.DataBind();
+                    calcularPrecio();
                 }
             }
         }
+
+        private void calcularPrecio()
+        {
+
+            List<string> lista1 = (List<string>)Session["carrito"];
+            cursos = new List<CursosModel>();
+
+            float count = 0;
+
+            foreach (object item in lista1)
+            {
+                var cursoActual = listarCursos().Where(x => x.Name.Contains(item.ToString())).ToList().First();
+                cursos.Add(cursoActual);
+                count += cursoActual.Price;
+            }
+
+            Label2.Text = "Precio total: ARS$" + count.ToString();
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -49,6 +69,8 @@ namespace Vista
                     }
                     ListBox1.DataSource = lista;
                     ListBox1.DataBind();
+
+                    calcularPrecio();
                 }
             }
             catch(Exception ex) 
@@ -73,6 +95,7 @@ namespace Vista
             ListBox1.Items.Clear();
             MenuItems.items.Clear();
 
+            calcularPrecio();
 
             BitacoraService bitacoraService = new BitacoraService();
             UserModel user = new UserModel();
