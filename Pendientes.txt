@@ -10,6 +10,8 @@
 
 5. Falta agregar trycatch a todos los formularios.
 
+6. El carrito nunca te dice cuanto es el total en precio.
+
 # Pulir detalles
 1. Agregar la validacion de contrasenia para 6 caracteres.
 
