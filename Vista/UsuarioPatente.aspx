@@ -11,7 +11,7 @@
             <br />
             <br />
             Seleccionar permiso:<br />
-            <asp:DropDownList ID="DropDownList2" runat="server" Height="52px" Width="199px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            <asp:DropDownList ID="DropDownList2" runat="server" Height="52px" Width="199px" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
             <br />
@@ -19,10 +19,10 @@
             <asp:ListBox ID="ListBox1" runat="server" Width="201px"></asp:ListBox>
             <br />
             <br />
-            <asp:Button ID="Button3" runat="server" Height="24px" Text="Listar permisos del usuario" Width="197px" OnClick="Button2_Click" />
+            <asp:Button ID="Button3" runat="server" Height="24px" Text="Listar permisos del usuario" Width="232px" OnClick="Button2_Click" />
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Height="24px" Text="Agregar permiso al usuario" Width="197px" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Height="24px" Text="Agregar permiso al usuario" Width="233px" OnClick="Button3_Click" />
         </div>
     </main>
 </asp:Content>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using DigitosVerificadoresLib;
 using DigitosVerificadoresLib.services;
+using System.Windows.Forms;
 
 namespace AccesoDatos
 {
@@ -142,13 +143,14 @@ namespace AccesoDatos
                     permisosRepository.FillUserComponents(user);
                     //user.Language = languageRepository.GetLanguage(idLanguaje);
                 }
-               
 
                 return user;
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                //return false;
+                MessageBox.Show("El usuario no tiene permisos","Error en la base de datos",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                throw ex;
             }
         }
         public UserModel get(int id)
@@ -346,7 +348,7 @@ namespace AccesoDatos
                 var cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = $@"delete from usuarios_permisos where id_usuario=@id;";
+                cmd.CommandText = $@"delete from User_Permission where ID_User=@id;";
                 cmd.Parameters.Add(new SqlParameter("id", user.Id));
                 cmd.ExecuteNonQuery();
 
@@ -355,18 +357,19 @@ namespace AccesoDatos
                     cmd = new SqlCommand();
                     cmd.Connection = connection;
                     //FIX THIS SHIT
-                    cmd.CommandText = $@"insert into User_Permissions (id_usuario,id_permiso) values (@id_usuario,@id_permiso) "; ;
+                    cmd.CommandText = $@"insert into User_Permission (ID_User,ID_Permission) values (@id_usuario,@id_permiso) "; ;
                     cmd.Parameters.Add(new SqlParameter("id_usuario", user.Id));
                     cmd.Parameters.Add(new SqlParameter("id_permiso", item.Id));
 
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();
+                //return true
             }
             catch (Exception)
             {
-
-                throw;
+                //Mensaje de error
+                //return false;
             }
         }
         public void updatePassword(UserModel user)

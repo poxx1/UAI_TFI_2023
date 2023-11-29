@@ -1,10 +1,11 @@
 ###################################### Errores pendientes de modificacion ##################################################
 // CODIGO
 1. Menu de Restore/Recalcular hay que agregar las otras tablas y ver porque rompe todo.
+1 Bis. Al 1 hay que agregarle lo de los digitos verificadores de los demas
 
-2. Al 1 hay que agregarle lo de los digitos verificadores de los demas
-
-3. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
+2. Metodo para crear familia no existe.
+Fix. Lo mismo que implemente para UsuarioPatente, aplicarlo en FamiliaPatente. Eso te carga la nueva patente y te saca la vieja?
+2 Bis. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
 
 4. Agregar un boton para poder cambiar de idioma la main page.
 
@@ -12,13 +13,24 @@
 
 6. El carrito nunca te dice cuanto es el total en precio.
 
+7. Los controles custom no existen
+
 # Pulir detalles
 1. Agregar la validacion de contrasenia para 6 caracteres.
 
 2. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
+3. El CSS nuevo no carga
+
 // CARPETA
 1. Faltan implementar los casos de uso de compra
 
-2. Falta modificar los cartes
+2. Faltan modificar las capturas
 
+3. Hay que revisar los errores de cada caso de uso
+
+4. Hay que cambiar las referencias cruzadas para que esten bien
+
+5. Actualizar XML, WebServices.
+
+6. Imprimir xd

@@ -32,6 +32,7 @@ namespace Vista
                     "Menu de permisos",
                     "Modificar Usuario/Patente",
                     "Modificar Familia/Patente",
+                    "Agregar familia"
                 };
                 PermissionList.DataSource = null;
                 PermissionList.DataSource = permissionlist;
@@ -227,6 +228,7 @@ namespace Vista
                 {
                     case "Modificar Usuario/Patente": HttpContext.Current.Response.Redirect("UsuarioPatente.aspx"); break;
                     case "Modificar Familia/Patente": HttpContext.Current.Response.Redirect("FamiliaPatente.aspx"); break;
+                    case "Agregar familia": HttpContext.Current.Response.Redirect("AddFamilia.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }
@@ -236,6 +238,7 @@ namespace Vista
                 {
                     case "Update Usuario/Patente": HttpContext.Current.Response.Redirect("UsuarioPatente.aspx"); break;
                     case "Update Familia/Patente": HttpContext.Current.Response.Redirect("FamiliaPatente.aspx"); break;
+                    case "Agregar familia": HttpContext.Current.Response.Redirect("AddFamilia.aspx"); break;
                     default: HttpContext.Current.Response.Redirect("default.aspx"); break;
                 }
             }

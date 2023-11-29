@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddFamilia.aspx" />
     <Content Include="AddSolicitud.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Bitacora.aspx" />
@@ -215,6 +216,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFamilia.aspx.cs">
+      <DependentUpon>AddFamilia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddFamilia.aspx.designer.cs">
+      <DependentUpon>AddFamilia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddSolicitud.aspx.cs">
       <DependentUpon>AddSolicitud.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
