@@ -28,6 +28,9 @@
             <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox><br><br />
 
             <asp:Button ID="Button1" runat="server" Text="Editar usuario" OnClick="Button1_Click" />
+                    <br />
+                    <br />
+            <asp:Button ID="Button2" runat="server" Text="Desbloquear usuario" OnClick="Button2_Click" />
         </div>
         </div>
     </main>

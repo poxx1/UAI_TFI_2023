@@ -29,11 +29,11 @@ namespace Vista
                 CursosService cs = new CursosService();
                 cs.addCurso(curso);
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message,"SayIt - Error",MessageBoxButtons.OK,MessageBoxIcon.Error); }
-            //FALTA agregar el message en pantalla de que fue ok
-            //FALTA validar que los campos no esten vacios porque la queda
+            catch(Exception ex) 
+            { 
+                GlobalMessage.MessageBox(this,ex.Message+"SayIt - Error"); 
+            }
         }
-
         protected void TextBox3_TextChanged(object sender, EventArgs e)
         {
             //No hay que hacer nada aca.

@@ -400,7 +400,6 @@ namespace AccesoDatos
         }
         public bool update(UserModel user)
         {
-            //FALTA implementar update con idioma
             SqlConnection connection = ConnectionSingleton.getConnection();
 
             SqlTransaction transaction;

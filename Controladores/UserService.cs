@@ -110,6 +110,7 @@ namespace Controladores
         {
             UserModel toUpdate = Get(user.Nickname);
             toUpdate.Blocked = false;
+            toUpdate.Tries = 0;
             UpdateUser(toUpdate);
         }
         public void ChangePassword(string pass, string newPass, UserModel user)

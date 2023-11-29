@@ -1,24 +1,25 @@
 ###################################### Errores pendientes de modificacion ##################################################
 // CODIGO
-1. Cuando modificas un dato en la DB, te avisa que esta corrupto, pero si volves a intentar loguearte, pisa ese error de una
-	faltaria la pantalla de verificaciones donde te pida si sos admin si la DB tiene que ser restaurada, o si queres
-	revalidar todo y fue.
-	Cuando recalculas el digito verificador de algo previamente roto, se rompe todo mal. Fijate que onda.
+1. Menu de Restore/Recalcular hay que agregar las otras tablas y ver porque rompe todo.
 
-2. Menu de Backup/Restore o recalcular digitos > Corrupcion.aspx. Hay que agregar las otras tablas y ver porque rompe todo.
+2. Al 1 hay que agregarle lo de los digitos verificadores de los demas
 
 3. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
- 
-//Pulir detalles
-1. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
 
-2. Agregar la validacion de contrasenia para 6 caracteres.
+4. Agregar los controles con regex a todos los menues.
 
-3. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
+5. Hay que mostrar los mensajes de error y capturar los errores.
 
-4. Hay que mostrar los mensajes de error y capturar los errores.
+6. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
 
-5. Cuando updateas el usuario no te calcula el digito verificador.
+7. Falta el boton de Desbloquear usuario
+
+8. Otro boton mas me faltaba? cual sera?
+
+# Pulir detalles
+1. Agregar la validacion de contrasenia para 6 caracteres.
+
+2. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
 // CARPETA
 1. Faltan implementar los casos de uso de compra
