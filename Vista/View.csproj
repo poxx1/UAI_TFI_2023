@@ -110,6 +110,8 @@
     <Content Include="Backup.aspx" />
     <Content Include="Bitacora.aspx" />
     <Content Include="Corrupcion.aspx" />
+    <Content Include="Customs\ValidateLetras.ascx" />
+    <Content Include="Customs\ValidateNumerico.ascx" />
     <Content Include="Customs\ValidateDNI.ascx" />
     <Content Include="Customs\ValidateEmail.ascx" />
     <Content Include="Customs\ValidatePassword.ascx" />
@@ -251,6 +253,20 @@
     </Compile>
     <Compile Include="Corrupcion.aspx.designer.cs">
       <DependentUpon>Corrupcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customs\ValidateLetras.ascx.cs">
+      <DependentUpon>ValidateLetras.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customs\ValidateLetras.ascx.designer.cs">
+      <DependentUpon>ValidateLetras.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Customs\ValidateNumerico.ascx.cs">
+      <DependentUpon>ValidateNumerico.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customs\ValidateNumerico.ascx.designer.cs">
+      <DependentUpon>ValidateNumerico.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customs\ValidateDNI.ascx.cs">
       <DependentUpon>ValidateDNI.ascx</DependentUpon>

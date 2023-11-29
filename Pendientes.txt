@@ -3,16 +3,12 @@
 1. Menu de Restore/Recalcular hay que agregar las otras tablas y ver porque rompe todo.
 	1 Bis. Al 1 hay que agregarle lo de los digitos verificadores de los demas
 
-2. Falta agregar trycatch a todos los formularios y controles custom.
-
-3. Los controles custom no existen
-
 # Pulir detalles
-1. Agregar la validacion de contrasenia para 6 caracteres.
-
 2. Agregar los puntos B, C y D de la bitacora. (26 en la hoja del profe).
 
 3. Crea una famila nueva, le agrega 1 SOLO PERMISO, despues si hces algo mas se rompe a la mierda
+
+4. Los controles custom no existen
 
 // CARPETA
 1. Faltan implementar los casos de uso de compra
@@ -25,4 +21,8 @@
 
 5. Actualizar XML, WebServices.
 
-6. Imprimir xd
+6. Diagrama de ciclo de vida, no seas pajin
+
+7. Diagramas de CU 
+
+8. Imprimir xd
