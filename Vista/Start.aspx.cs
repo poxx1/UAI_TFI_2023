@@ -13,7 +13,6 @@ namespace Vista
         UserModel user = new UserModel();
         LogService login = new LogService();
         BitacoraService bitacoraService = new BitacoraService();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["logged_in"] = false;

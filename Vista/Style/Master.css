@@ -25,19 +25,6 @@ body {
     padding: 1px 1px 1px 100px;
 }
 
-Button {
-    display: flex;
-    justify-content: center;
-    height: 30px;
-    width: 100px;
-    border: 1px solid green;
-    margin: 10px 20px;
-}
-
-Textbox {
-    display: flex;
-    justify-content: center;
-    height: 30px;
-    width: 150px;
-    border: 2px solid green;
+input {
+    border: 2px solid skyblue;
 }

@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using Servicios;
+using Model;
 
 namespace Vista
 {
@@ -21,7 +23,11 @@ namespace Vista
         protected void Button2_Click(object sender, EventArgs e)
         {
             checkCreateDirectory();
-            backup.realizarBackup("C://Backup"); ;
+            backup.realizarBackup("C://Backup");
+            BitacoraService bitacoraService = new BitacoraService();
+            UserModel user = new UserModel();
+            bitacoraService.LogData("Login", $"El usuario {user.Name} realizo un backup.", "Media");
+            GlobalMessage.MessageBox(this, "Se realizo el backup");
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -31,6 +37,11 @@ namespace Vista
                 pathActual = "C://Backup//" + FileUpload1.FileName;
 
                 backup.realizarRestore(pathActual);
+
+                BitacoraService bitacoraService = new BitacoraService();
+                UserModel user = new UserModel();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} realizo un restore de la base de datos.", "Media");
+                GlobalMessage.MessageBox(this,"Se realizo el restore");
             }
         }
         private void checkCreateDirectory()

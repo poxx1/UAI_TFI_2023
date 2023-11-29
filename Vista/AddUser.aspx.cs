@@ -31,7 +31,13 @@ namespace Vista
             user.Adress = TextBox8.Text;
 
             if (AddUser(user))
+            {
                 GlobalMessage.MessageBox(this, $"Se agrego a {user.Nickname} al sistema");
+
+
+                BitacoraService bitacoraService = new BitacoraService();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} agrego un usuario nuevo.", "Media");
+            }
             else
                 GlobalMessage.MessageBox(this, $"No se pudo agregar a {user.Nickname} al sistema");
         }

@@ -8,11 +8,7 @@
 
 4. Agregar los controles con regex a todos los menues.
 
-5. Hay que mostrar los mensajes de error y capturar los errores.
-
-6. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
-
-8. Otro boton mas me faltaba? cual sera?
+5. Agregar un boton para poder cambiar de idioma la main page.
 
 # Pulir detalles
 1. Agregar la validacion de contrasenia para 6 caracteres.
@@ -22,4 +18,4 @@
 // CARPETA
 1. Faltan implementar los casos de uso de compra
 
-2. Falta modificar los cartes 
+2. Falta modificar los cartes
