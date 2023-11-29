@@ -12,8 +12,6 @@
 
 6. Hay que agregar las validaciones de Bitacora, porque por ahora solo Login/Logout quedan registrados.
 
-7. Falta el boton de Desbloquear usuario
-
 8. Otro boton mas me faltaba? cual sera?
 
 # Pulir detalles
