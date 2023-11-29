@@ -6,9 +6,9 @@
 
 3. Familias y Patentes > Cambiar treeView por List y que guarde con LINQ y toda la verga de recorrer
 
-4. Agregar los controles con regex a todos los menues.
+4. Agregar un boton para poder cambiar de idioma la main page.
 
-5. Agregar un boton para poder cambiar de idioma la main page.
+5. Falta agregar trycatch a todos los formularios.
 
 # Pulir detalles
 1. Agregar la validacion de contrasenia para 6 caracteres.
