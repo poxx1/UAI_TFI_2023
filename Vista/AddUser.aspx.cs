@@ -39,9 +39,10 @@ namespace Vista
             if (!Regex.IsMatch(TextBox3.Text, "^([a-zA-Z]+$)"))//Letters only NICK
             { isValidData = false; GlobalMessage.MessageBox(this, $"El Nickname no es valido, solo letras");
             }
-            int count = TextBox3.Text.Split('/').Length - 1;
-            if (count<8)//(!Regex.IsMatch(TextBox3.Text, "^(\\s*(\\S)\\s*){8,}\r\n"))//PASSWORD > 8
-            { isValidData = false; GlobalMessage.MessageBox(this, $"La password no es valida, mayor a 8 caracteres");
+            int count = TextBox4.Text.ToCharArray().Count();
+            if (count <= 7)//(!Regex.IsMatch(TextBox3.Text, "^(\\s*(\\S)\\s*){8,}\r\n"))//PASSWORD > 8
+            {
+                isValidData = false; GlobalMessage.MessageBox(this, $"La password no es valida, mayor a 8 caracteres");
             }
             if (!isValidEmail(TextBox6.Text))//EMAIL
             { isValidData = false; GlobalMessage.MessageBox(this, $"El email no es valido");

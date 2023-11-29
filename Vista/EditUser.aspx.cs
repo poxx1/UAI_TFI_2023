@@ -2,6 +2,7 @@
 using Model;
 using Servicios;
 using System;
+using System.Linq;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -60,8 +61,8 @@ namespace Vista
             {
                 isValidData = false; GlobalMessage.MessageBox(this, $"El Nickname no es valido, solo letras");
             }
-            int count = TextBox3.Text.Split('/').Length - 1;
-            if (count < 8)//(!Regex.IsMatch(TextBox3.Text, "^(\\s*(\\S)\\s*){8,}\r\n"))//PASSWORD > 8
+            int count = TextBox4.Text.ToCharArray().Count();
+            if (count <=7)//(!Regex.IsMatch(TextBox3.Text, "^(\\s*(\\S)\\s*){8,}\r\n"))//PASSWORD > 8
             {
                 isValidData = false; GlobalMessage.MessageBox(this, $"La password no es valida, mayor a 8 caracteres");
             }
