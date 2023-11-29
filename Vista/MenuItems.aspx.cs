@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using Model;
+using Modelos;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Vista
 {
@@ -62,6 +64,12 @@ namespace Vista
 
             if(items!=null)
                 items.Add(ListBox1.SelectedValue.ToString());
+
+
+            BitacoraService bitacoraService = new BitacoraService();
+            UserModel user = new UserModel();
+            bitacoraService.LogData("Login", $"El usuario {user.Name} agrego un item al carrito.", "Media");
+            GlobalMessage.MessageBox(this, $"Se agrego el item al carrito");
         }
         private List<CursosModel> listarCursos() {
             return cs.listCursos();

@@ -1,10 +1,12 @@
-﻿using Modelos;
+﻿using Model;
+using Modelos;
 using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Vista
 {
@@ -122,6 +124,12 @@ namespace Vista
             TreeView1.SelectedNode.ChildNodes.Add(nuevaPatente);
             TreeView1.ExpandAll();
             TreeView1.DataBind();
+
+
+                BitacoraService bitacoraService = new BitacoraService();
+                UserModel user = new UserModel();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} modifico una familia.", "Media");
+                GlobalMessage.MessageBox(this, $"Se modifico la familia");
             }
             catch (Exception) { }
         }
@@ -140,6 +148,11 @@ namespace Vista
                 }
                 TreeView1.ExpandAll();
                 TreeView1.DataBind();
+
+                BitacoraService bitacoraService = new BitacoraService();
+                UserModel user = new UserModel();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} modifico una familia.", "Media");
+                GlobalMessage.MessageBox(this, $"Se modifico la familia");
             }
             catch (Exception) { }
         }

@@ -1,10 +1,12 @@
 ﻿using Controladores;
+using Model;
 using Modelos;
 using Servicios;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Vista
 {
@@ -70,6 +72,12 @@ namespace Vista
             p.create(cursos);
             ListBox1.Items.Clear();
             MenuItems.items.Clear();
+
+
+            BitacoraService bitacoraService = new BitacoraService();
+            UserModel user = new UserModel();
+            bitacoraService.LogData("Login", $"El usuario {user.Name} realizo una compra.", "Media");
+            GlobalMessage.MessageBox(this, $"Se realizo la compra exitosamente");
         }
         private List<CursosModel> listarCursos()
         {

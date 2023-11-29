@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using Model;
+using Modelos;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Vista
 {
@@ -28,6 +30,11 @@ namespace Vista
 
                 CursosService cs = new CursosService();
                 cs.addCurso(curso);
+
+                BitacoraService bitacoraService = new BitacoraService();
+                UserModel user = new UserModel();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} agrego un curso.", "Media");
+                GlobalMessage.MessageBox(this, $"Se agrego el curso");
             }
             catch(Exception ex) 
             { 

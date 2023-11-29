@@ -1,4 +1,5 @@
-﻿using Modelos;
+﻿using Model;
+using Modelos;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,11 @@ namespace Vista
             currentCurso.Price = float.Parse(TextBox3.Text);
             cs.updateCurso(currentCurso);
             cargarDropDown();
+
+            BitacoraService bitacoraService = new BitacoraService();
+            UserModel user = new UserModel();
+            bitacoraService.LogData("Login", $"El usuario {user.Name} edito un curso.", "Media");
+            GlobalMessage.MessageBox(this, "Se realizo el backup");
         }
     }
 }

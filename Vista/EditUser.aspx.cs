@@ -37,7 +37,12 @@ namespace Vista
 
             if (TextBox5.Text.Length > 0) { usuario.Password = Security.HashSha256(TextBox5.Text); }
             if (us.UpdateUser(usuario))
+            {
+                BitacoraService bitacoraService = new BitacoraService();
+                UserModel user = new UserModel();
+                bitacoraService.LogData("Login", $"El usuario {user.Name} edito un curso.", "Media");
                 GlobalMessage.MessageBox(this, $"Se edito a {userName}");
+            }
             else
                 GlobalMessage.MessageBox(this, $"No se pudo editar a {userName}");
         }
@@ -57,6 +62,11 @@ namespace Vista
             us.UnblockUser(usuario);
 
             GlobalMessage.MessageBox(this, $"Se desbloqueo a {userName}");
+
+
+            BitacoraService bitacoraService = new BitacoraService();
+            UserModel user = new UserModel();
+            bitacoraService.LogData("Login", $"El usuario {user.Name} desbloqueo a otro usuario.", "Media");
         }
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
