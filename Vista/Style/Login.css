@@ -1,50 +1,46 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
+﻿* {
+    background-color: rgb(28, 28, 28);
+    color: whitesmoke;
+    font-family: bahnschrift,sans-serif;
+}
+
+input {
+    margin: 5px;
+    border-radius: 8px;
+    border-color: goldenrod;
+    border-style: ridge;
+    border-width: 3px;
+    height: 30px;
+    width: 200px;
+    font-size: 16px;
+    font-family: 'bahnschrift';
+    text-align: center;
+}
+
+[type="submit"] {
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'bahnschrift';
+    border-radius: 8px;
+    border-color: goldenrod;
+    border-style: ridge;
+    border-width: 3px;
+    width: 200px;
+    height: 50px;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding 200px;
+    border 200px;
     min-height: 100vh;
     background: #000;
 }
 
 h2 {
     font-size: 2em;
-    color: #0f0;
+    color: goldenrod;
     text-transform: uppercase;
-}
-
-p {
-    color: #808080;
-    align-items: center;
-    padding: 1px;
-}
-
-.customButton {
-    display: flex;
-    justify-content: center;
-    height: 30px;
-    width: 100px;
-    border: 1px solid green;
-    margin: 10px 20px;
-}
-
-.customTextbox {
-    display: flex;
-    justify-content: center;
-    height: 30px;
-    width: 150px;
-    border: 2px solid green;
-}
-
-.signin {
-    padding: 20px;
-    border-style: inset;
-    background: #211e1e;
 }

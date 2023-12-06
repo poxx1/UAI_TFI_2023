@@ -11,18 +11,4 @@
 4. Los controles custom no existen
 
 // CARPETA
-1. Faltan implementar los casos de uso de compra
-
-2. Faltan modificar las capturas
-
-3. Hay que revisar los errores de cada caso de uso
-
-4. Hay que cambiar las referencias cruzadas para que esten bien
-
-5. Actualizar XML, WebServices.
-
-6. Diagrama de ciclo de vida, no seas pajin
-
-7. Diagramas de CU 
-
-8. Imprimir xd
+6. Imprimir xd
